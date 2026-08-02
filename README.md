@@ -1,2 +1,2 @@
 # GOHMWEB
-Website for GreatOhm
+Website for GreatOhm app owned by GreatOhm (OPS) private limited
