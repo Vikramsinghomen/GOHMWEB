@@ -462,39 +462,53 @@ a:hover {
     font-size: 0.95rem;
 }
 
-/* ---------- 3D Carousel ---------- */
-.carousel-stage {
-    position: relative;
-    perspective: 1600px;
-    height: 700px;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-}
-
-.carousel {
+/* ---------- Marquee ---------- */
+.marquee-stage {
     position: relative;
     width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 30px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
+.marquee-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    animation: marqueeScroll 40s linear infinite;
+    will-change: transform;
+}
+
+.marquee-stage:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Phone card in marquee */
 .phone {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    flex: 0 0 auto;
     width: 220px;
     height: 450px;
-    margin-top: -225px;
-    margin-left: -110px;
     cursor: pointer;
-    transform-style: preserve-3d;
-    transition: filter 0.6s ease, opacity 0.6s ease;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     -webkit-tap-highlight-color: transparent;
-    will-change: transform;
+}
+
+.phone:hover {
+    transform: translateY(-8px) scale(1.03);
 }
 
 /* Phone frame */
@@ -507,6 +521,14 @@ a:hover {
     box-shadow:
         0 30px 50px -20px rgba(0, 0, 0, 0.35),
         inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+    transition: box-shadow 0.4s ease;
+}
+
+.phone:hover .phone-frame {
+    box-shadow:
+        0 40px 80px -20px rgba(13, 148, 136, 0.4),
+        0 0 0 4px rgba(20, 184, 166, 0.35),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.12);
 }
 
 .phone-notch {
@@ -550,56 +572,12 @@ a:hover {
     pointer-events: none;
 }
 
-/* Active (front) phone */
-.phone.active {
-    z-index: 10;
-}
-
+/* Active phone highlight */
 .phone.active .phone-frame {
     box-shadow:
         0 40px 80px -20px rgba(13, 148, 136, 0.4),
         0 0 0 4px rgba(20, 184, 166, 0.35),
         inset 0 0 0 2px rgba(255, 255, 255, 0.12);
-}
-
-.phone:not(.active) {
-    filter: blur(2px) brightness(0.9);
-    opacity: 0.55;
-}
-
-/* Carousel arrows */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid var(--turquoise);
-    background: var(--white);
-    color: var(--turquoise-dark);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.carousel-arrow:hover {
-    background: var(--turquoise);
-    color: #fff;
-    transform: translateY(-50%) scale(1.08);
-}
-
-.carousel-arrow.prev {
-    left: 0;
-}
-
-.carousel-arrow.next {
-    right: 0;
 }
 
 /* Caption box */
@@ -1020,8 +998,8 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .carousel-stage {
-        perspective: 1200px;
+    .marquee-track {
+        animation-duration: 35s;
     }
 }
 
@@ -1067,21 +1045,14 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
-    .carousel-stage {
-        height: 520px;
-        perspective: 800px;
-    }
-
-    .carousel {
-        width: 100%;
-        height: 100%;
+    .marquee-track {
+        gap: 20px;
+        animation-duration: 30s;
     }
 
     .phone {
         width: 180px;
         height: 380px;
-        margin-top: -190px;
-        margin-left: -90px;
     }
 
     .phone-frame {
@@ -1092,11 +1063,6 @@ a:hover {
     .phone-screen {
         inset: 10px;
         border-radius: 18px;
-    }
-
-    .carousel-arrow {
-        width: 40px;
-        height: 40px;
     }
 
     .footer-inner {
@@ -1135,19 +1101,13 @@ a:hover {
         max-width: 300px;
     }
 
-    .carousel-stage {
-        height: 460px;
-    }
-
-    .carousel {
-        width: 100%;
-        height: 100%;
+    .marquee-track {
+        gap: 16px;
+        animation-duration: 25s;
     }
 
     .phone {
         width: 160px;
         height: 340px;
-        margin-top: -170px;
-        margin-left: -80px;
     }
 }

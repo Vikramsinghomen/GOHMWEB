@@ -1,6 +1,6 @@
 /* ============================================================
    GREATOHM — Main JavaScript
-   - 3D rotating phone carousel (13 screenshots)
+   - Infinite marquee of app screenshots (13 screenshots)
    - Floating stars background
    - Nav menu, scroll effects, forms
 ============================================================ */
@@ -68,48 +68,27 @@
         },
     ];
 
-    /* Configuration */
-    const PHONE_COUNT = SCREEN_DATA.length;
-    const DEG_PER_PHONE = 360 / PHONE_COUNT;
-    const ROTATE_DEG_PER_MS = 360 / 15000; // full revolution every ~15s
-    const ANIM_MS = 700;         // click-to-front animation duration
-
-    /* Responsive carousel dimensions */
-    function getCarouselConfig() {
-        const w = window.innerWidth;
-        if (w < 481) return { radius: 300, radiusX: 0.7, scaleBoost: 0.18 };
-        if (w < 769) return { radius: 380, radiusX: 0.7, scaleBoost: 0.18 };
-        if (w < 1025) return { radius: 480, radiusX: 0.7, scaleBoost: 0.18 };
-        return { radius: 580, radiusX: 0.7, scaleBoost: 0.18 };
-    }
-
-    let CONFIG = getCarouselConfig();
-
     /* DOM refs */
-    const carouselEl = document.getElementById("carousel");
+    const marqueeTrack = document.getElementById("marqueeTrack");
+    const marqueeStage = document.getElementById("marqueeStage");
     const captionTitle = document.getElementById("captionTitle");
     const captionDesc = document.getElementById("captionDesc");
     const captionBox = document.getElementById("captionBox");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const stageEl = document.getElementById("carouselStage");
 
-    /* Animation state */
-    let carouselAngle = 0;        // continuous angle in degrees
     let activeIndex = 0;
-    let autoRotate = true;
-    let lastTime = null;
-    let rafId = null;
-    let tween = null;             // { from, to, start, duration }
+    let isPaused = false;
 
     /* ============================================================
        2. BUILD PHONES
+       The marquee track contains the full set of phones twice
+       so the CSS animation (translateX -50%) loops seamlessly.
     ============================================================ */
     function buildPhones() {
-        if (!carouselEl) return;
+        if (!marqueeTrack) return;
+
         const fragment = document.createDocumentFragment();
 
-        for (let i = 0; i < PHONE_COUNT; i++) {
+        for (let i = 0; i < SCREEN_DATA.length; i++) {
             const num = i + 1;
 
             const phone = document.createElement("div");
@@ -144,74 +123,66 @@
             phone.appendChild(frame);
             phone.appendChild(shadow);
 
-            /* Click / tap to bring to front */
-            phone.addEventListener("click", function () {
-                bringToFront(i);
-            });
-
-            phone.addEventListener("keydown", function (e) {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    bringToFront(i);
-                }
-            });
-
             fragment.appendChild(phone);
         }
 
-        carouselEl.appendChild(fragment);
-    }
+        /* First set of phones */
+        marqueeTrack.appendChild(fragment);
 
-    /* ============================================================
-       3. POSITION PHONES IN 3D
-       Each phone: angle = i*DEG + carouselAngle
-       - x = sin(angle) * RADIUS * RADIUS_X
-       - z = cos(angle) * RADIUS
-       - rotateY(angle) so the phone face points outward
-       - front phones are naturally larger due to 3D perspective
-    ============================================================ */
-    function applyPositions() {
-        if (!carouselEl) return;
-        const phones = carouselEl.children;
+        /* Deep-clone each phone for a seamless infinite loop */
+        const firstSet = Array.prototype.slice.call(marqueeTrack.children);
+        firstSet.forEach(function (original) {
+            marqueeTrack.appendChild(original.cloneNode(true));
+        });
 
-        for (let i = 0; i < phones.length; i++) {
-            const angleDeg = i * DEG_PER_PHONE + carouselAngle;
-            const angleRad = angleDeg * (Math.PI / 180);
-            const z = Math.round(Math.cos(angleRad) * CONFIG.radius);
-            const x = Math.round(Math.sin(angleRad) * CONFIG.radius * CONFIG.radiusX);
-            const y = -Math.round(Math.abs(Math.cos(angleRad)) * 30);
-
-            /* Gentle ease-out scaling for the front phone */
-            const frontness = Math.max(0, Math.cos(angleRad)); // 1 at front, 0 at sides
-            const scale = 1 + frontness * CONFIG.scaleBoost;
-
-            phones[i].style.transform =
-                "translate3d(" + x + "px, " + y + "px, " + z + "px) " +
-                "rotateY(" + angleDeg + "deg) scale(" + scale.toFixed(3) + ")";
+        /* Wire up clicks on all phones (original + cloned sets) */
+        const allPhones = marqueeTrack.children;
+        for (let j = 0; j < allPhones.length; j++) {
+            const idx = j % SCREEN_DATA.length;
+            allPhones[j].addEventListener("click", function () {
+                selectPhone(idx);
+            });
+            allPhones[j].addEventListener("keydown", function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    selectPhone(idx);
+                }
+            });
         }
     }
 
     /* ============================================================
-       4. ACTIVE PHONE + CAPTION
+       3. SELECT PHONE + CAPTION
     ============================================================ */
-    function getFrontIndex() {
-        /* Phone i is at front when i*DEG + carouselAngle ≡ 0 (mod 360) */
-        const normalized = ((-carouselAngle % 360) + 360) % 360;
-        return Math.round(normalized / DEG_PER_PHONE) % PHONE_COUNT;
-    }
+    function selectPhone(index) {
+        activeIndex = index;
+        const phones = marqueeTrack ? marqueeTrack.children : [];
 
-    function setActive(index) {
-        activeIndex = (index + PHONE_COUNT) % PHONE_COUNT;
-
-        if (!carouselEl) return;
-        const phones = carouselEl.children;
         for (let i = 0; i < phones.length; i++) {
-            phones[i].classList.toggle("active", i === activeIndex);
+            const idx = i % SCREEN_DATA.length;
+            phones[i].classList.toggle("active", idx === activeIndex);
+        }
+
+        /* Pause the marquee so the selected phone stays in view */
+        if (marqueeTrack) {
+            marqueeTrack.style.animationPlayState = "paused";
+            isPaused = true;
         }
 
         updateCaption(activeIndex);
     }
 
+    /* Resume the marquee after a short delay */
+    function resumeMarquee() {
+        if (marqueeTrack && isPaused) {
+            marqueeTrack.style.animationPlayState = "running";
+            isPaused = false;
+        }
+    }
+
+    /* ============================================================
+       4. CAPTION
+    ============================================================ */
     function updateCaption(index) {
         if (!captionBox || !captionTitle || !captionDesc) return;
 
@@ -228,98 +199,7 @@
     }
 
     /* ============================================================
-       5. ROTATION LOOP (requestAnimationFrame — buttery smooth)
-    ============================================================ */
-    function tick(now) {
-        if (lastTime === null) lastTime = now;
-        const dt = now - lastTime;
-        lastTime = now;
-
-        if (tween) {
-            /* Animated rotation (click-to-front / arrows) */
-            const progress = Math.min(1, (now - tween.start) / tween.duration);
-            const eased = easeInOutCubic(progress);
-            carouselAngle = tween.from + (tween.to - tween.from) * eased;
-
-            applyPositions();
-
-            if (progress >= 1) {
-                carouselAngle = tween.to;
-                tween = null;
-                applyPositions();
-                setActive(getFrontIndex());
-            }
-        } else if (autoRotate) {
-            carouselAngle += ROTATE_DEG_PER_MS * dt;
-            applyPositions();
-
-            /* Only update caption when the front phone actually changes */
-            const front = getFrontIndex();
-            if (front !== activeIndex) {
-                setActive(front);
-            }
-        }
-
-        rafId = requestAnimationFrame(tick);
-    }
-
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    function bringToFront(index) {
-        if (tween) return; // ignore clicks during animation
-
-        /* Target angle so phone `index` is at the front (angle ≡ 0 mod 360) */
-        const target = -index * DEG_PER_PHONE;
-
-        /* Find shortest-path equivalent to current angle */
-        const diff = ((target - carouselAngle) % 360 + 360) % 360;
-        const shortest = diff > 180 ? diff - 360 : diff;
-
-        tween = {
-            from: carouselAngle,
-            to: carouselAngle + shortest,
-            start: performance.now(),
-            duration: ANIM_MS,
-        };
-    }
-
-    /* ============================================================
-       6. PAUSE ON HOVER / TOUCH
-    ============================================================ */
-    if (stageEl) {
-        stageEl.addEventListener("mouseenter", function () {
-            autoRotate = false;
-        });
-        stageEl.addEventListener("mouseleave", function () {
-            autoRotate = true;
-        });
-        stageEl.addEventListener("touchstart", function () {
-            autoRotate = false;
-        });
-        stageEl.addEventListener("touchend", function () {
-            setTimeout(function () {
-                autoRotate = true;
-            }, 900);
-        });
-    }
-
-    /* Prev / Next arrows */
-    if (prevBtn) {
-        prevBtn.addEventListener("click", function () {
-            bringToFront(activeIndex - 1);
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener("click", function () {
-            bringToFront(activeIndex + 1);
-        });
-    }
-
-    /* ============================================================
-       7. LOGO ANIMATION
-       Both logos visible side by side with subtle pulse animation
+       5. LOGO ANIMATION
     ============================================================ */
     function initLogoSwap() {
         // No alternating needed — CSS handles the pulse animation on .logo-duo
@@ -327,7 +207,7 @@
     }
 
     /* ============================================================
-       8. FLOATING STARS
+       6. FLOATING STARS
     ============================================================ */
     function initStars() {
         const container = document.getElementById("stars");
@@ -351,7 +231,7 @@
     }
 
     /* ============================================================
-       9. HEADER SCROLL EFFECT
+       7. HEADER SCROLL EFFECT
     ============================================================ */
     function initHeader() {
         const header = document.querySelector(".site-header");
@@ -367,7 +247,7 @@
     }
 
     /* ============================================================
-       10. MOBILE NAV TOGGLE
+       8. MOBILE NAV TOGGLE
     ============================================================ */
     function initNav() {
         const toggle = document.getElementById("navToggle");
@@ -388,7 +268,7 @@
     }
 
     /* ============================================================
-       11. FORMS (frontend only demo)
+       9. FORMS (frontend only demo)
     ============================================================ */
     function initForms() {
         const notifyForm = document.getElementById("notifyForm");
@@ -419,19 +299,25 @@
     }
 
     /* ============================================================
-       12. INIT
+       10. INIT
     ============================================================ */
     document.addEventListener("DOMContentLoaded", function () {
         buildPhones();
-        applyPositions();
-        setActive(0);
-        if (carouselEl) {
-            rafId = requestAnimationFrame(tick);
-        }
+        updateCaption(0);
         initLogoSwap();
         initStars();
         initHeader();
         initNav();
         initForms();
+
+        /* Resume marquee after a pause (e.g. after clicking a phone) */
+        if (marqueeStage) {
+            marqueeStage.addEventListener("mouseleave", function () {
+                resumeMarquee();
+            });
+            marqueeStage.addEventListener("touchend", function () {
+                setTimeout(resumeMarquee, 1500);
+            });
+        }
     });
 })();
