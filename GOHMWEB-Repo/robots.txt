@@ -1,0 +1,10 @@
+# robots.txt for greatohm.com
+# Allow all search engine crawlers full access
+User-agent: *
+Allow: /
+
+# Block private/internal paths if any exist in the future
+# Disallow: /private/
+
+# Point crawlers to the XML sitemap
+Sitemap: https://greatohm.com/sitemap.xml
