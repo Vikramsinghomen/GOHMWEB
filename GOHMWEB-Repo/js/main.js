@@ -268,7 +268,32 @@
     }
 
     /* ============================================================
-       9. FORMS (frontend only demo)
+       9. FAQ ACCORDION (content pages)
+    ============================================================ */
+    function initFaq() {
+        document.querySelectorAll(".faq-item .faq-q").forEach(function (q) {
+            q.addEventListener("click", function () {
+                const item = q.closest(".faq-item");
+                const wasOpen = item.classList.contains("open");
+
+                /* Close all items in the same list */
+                const list = item.closest(".faq-list");
+                if (list) {
+                    list.querySelectorAll(".faq-item").forEach(function (other) {
+                        other.classList.remove("open");
+                    });
+                }
+
+                /* Open the clicked item (if it was closed) */
+                if (!wasOpen) {
+                    item.classList.add("open");
+                }
+            });
+        });
+    }
+
+    /* ============================================================
+       10. FORMS (frontend only demo)
     ============================================================ */
     function initForms() {
         const notifyForm = document.getElementById("notifyForm");
@@ -299,7 +324,7 @@
     }
 
     /* ============================================================
-       10. INIT
+       11. INIT
     ============================================================ */
     document.addEventListener("DOMContentLoaded", function () {
         buildPhones();
@@ -308,6 +333,7 @@
         initStars();
         initHeader();
         initNav();
+        initFaq();
         initForms();
 
         /* Resume marquee after a pause (e.g. after clicking a phone) */
