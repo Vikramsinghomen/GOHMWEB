@@ -167,6 +167,13 @@ a:hover {
     align-items: center;
 }
 
+.nav-tagline {
+    font-size: 0.72rem;
+    color: #6b7280;
+    margin-left: 14px;
+    white-space: nowrap;
+}
+
 .nav-logo {
     display: block;
     height: 44px;
@@ -902,6 +909,13 @@ a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footer-tagline {
+    display: block;
+    margin-top: 10px;
+    color: #aaa;
+    letter-spacing: 0.02em;
+}
+
 /* ---------- Sub-pages (Privacy / Terms / About) ---------- */
 .sub-page {
     padding: 160px 0 90px;
@@ -1194,6 +1208,10 @@ a:hover {
 
     .nav-toggle {
         display: flex;
+    }
+
+    .nav-tagline {
+        display: none;
     }
 
     .logo-duo {

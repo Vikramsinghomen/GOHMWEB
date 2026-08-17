@@ -7,4 +7,4 @@ Allow: /
 # Disallow: /private/
 
 # Point crawlers to the XML sitemap
-Sitemap: https://greatohm.com/sitemap.xml
+Sitemap: https://www.greatohm.com/sitemap.xml

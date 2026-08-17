@@ -2,61 +2,61 @@
 <?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://greatohm.com/</loc>
+    <loc>https://www.greatohm.com/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/astrology.html</loc>
+    <loc>https://www.greatohm.com/astrology.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/numerology.html</loc>
+    <loc>https://www.greatohm.com/numerology.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/tarot.html</loc>
+    <loc>https://www.greatohm.com/tarot.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/vastu.html</loc>
+    <loc>https://www.greatohm.com/vastu.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/palmistry.html</loc>
+    <loc>https://www.greatohm.com/palmistry.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/kundli.html</loc>
+    <loc>https://www.greatohm.com/kundli.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/about.html</loc>
+    <loc>https://www.greatohm.com/about.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/privacy.html</loc>
+    <loc>https://www.greatohm.com/privacy.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://greatohm.com/terms.html</loc>
+    <loc>https://www.greatohm.com/terms.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
