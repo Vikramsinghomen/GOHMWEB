@@ -989,6 +989,46 @@ a:hover {
     padding-bottom: 2px;
 }
 
+/* ---------- Delete Account page ---------- */
+.sub-page .page-title .brand {
+    color: var(--turquoise);
+    font-weight: 700;
+}
+
+.sub-page .page-body .steps {
+    background: var(--gray-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+}
+
+.sub-page .page-body .steps h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.sub-page .page-body .steps ol {
+    padding-left: 22px;
+    margin: 0;
+}
+
+.sub-page .page-body .steps li {
+    margin-bottom: 6px;
+}
+
+.sub-page .page-body .contact {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.sub-page .page-body .contact a {
+    color: var(--turquoise-dark);
+    font-weight: 600;
+}
+
 /* ---------- Content pages (SEO) ---------- */
 .breadcrumb {
     text-align: center;
