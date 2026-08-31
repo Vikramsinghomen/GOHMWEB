@@ -1,0 +1,545 @@
+{
+  "count": 90,
+  "items": [
+    {
+      "id": 1,
+      "symbol": "om",
+      "comp": "single",
+      "file": "avatar_1.gif"
+    },
+    {
+      "id": 2,
+      "symbol": "om",
+      "comp": "swarm",
+      "file": "avatar_2.gif"
+    },
+    {
+      "id": 3,
+      "symbol": "om",
+      "comp": "floats",
+      "file": "avatar_3.gif"
+    },
+    {
+      "id": 4,
+      "symbol": "om",
+      "comp": "ring",
+      "file": "avatar_4.gif"
+    },
+    {
+      "id": 5,
+      "symbol": "om_swastika",
+      "comp": "single",
+      "file": "avatar_5.gif"
+    },
+    {
+      "id": 6,
+      "symbol": "om_flower",
+      "comp": "single",
+      "file": "avatar_6.gif"
+    },
+    {
+      "id": 7,
+      "symbol": "trishul",
+      "comp": "single",
+      "file": "avatar_7.gif"
+    },
+    {
+      "id": 8,
+      "symbol": "trishul",
+      "comp": "floats",
+      "file": "avatar_8.gif"
+    },
+    {
+      "id": 9,
+      "symbol": "trishul_om",
+      "comp": "single",
+      "file": "avatar_9.gif"
+    },
+    {
+      "id": 10,
+      "symbol": "damru",
+      "comp": "single",
+      "file": "avatar_10.gif"
+    },
+    {
+      "id": 11,
+      "symbol": "damru",
+      "comp": "floats",
+      "file": "avatar_11.gif"
+    },
+    {
+      "id": 12,
+      "symbol": "shankh",
+      "comp": "single",
+      "file": "avatar_12.gif"
+    },
+    {
+      "id": 13,
+      "symbol": "shankh",
+      "comp": "ring",
+      "file": "avatar_13.gif"
+    },
+    {
+      "id": 14,
+      "symbol": "kalash",
+      "comp": "single",
+      "file": "avatar_14.gif"
+    },
+    {
+      "id": 15,
+      "symbol": "kalash_mango",
+      "comp": "single",
+      "file": "avatar_15.gif"
+    },
+    {
+      "id": 16,
+      "symbol": "kalash",
+      "comp": "floats",
+      "file": "avatar_16.gif"
+    },
+    {
+      "id": 17,
+      "symbol": "diya",
+      "comp": "single",
+      "file": "avatar_17.gif"
+    },
+    {
+      "id": 18,
+      "symbol": "diya",
+      "comp": "floats",
+      "file": "avatar_18.gif"
+    },
+    {
+      "id": 19,
+      "symbol": "diya",
+      "comp": "ring",
+      "file": "avatar_19.gif"
+    },
+    {
+      "id": 20,
+      "symbol": "lotus",
+      "comp": "single",
+      "file": "avatar_20.gif"
+    },
+    {
+      "id": 21,
+      "symbol": "lotus",
+      "comp": "floats",
+      "file": "avatar_21.gif"
+    },
+    {
+      "id": 22,
+      "symbol": "lotus",
+      "comp": "ring",
+      "file": "avatar_22.gif"
+    },
+    {
+      "id": 23,
+      "symbol": "lotus_bell",
+      "comp": "single",
+      "file": "avatar_23.gif"
+    },
+    {
+      "id": 24,
+      "symbol": "swastika",
+      "comp": "single",
+      "file": "avatar_24.gif"
+    },
+    {
+      "id": 25,
+      "symbol": "swastika",
+      "comp": "spokes",
+      "file": "avatar_25.gif"
+    },
+    {
+      "id": 26,
+      "symbol": "eye",
+      "comp": "single",
+      "file": "avatar_26.gif"
+    },
+    {
+      "id": 27,
+      "symbol": "eye",
+      "comp": "spokes",
+      "file": "avatar_27.gif"
+    },
+    {
+      "id": 28,
+      "symbol": "om_bell",
+      "comp": "single",
+      "file": "avatar_28.gif"
+    },
+    {
+      "id": 29,
+      "symbol": "sun_moon",
+      "comp": "single",
+      "file": "avatar_29.gif"
+    },
+    {
+      "id": 30,
+      "symbol": "heart",
+      "comp": "single",
+      "file": "avatar_30.gif"
+    },
+    {
+      "id": 31,
+      "symbol": "cross",
+      "comp": "single",
+      "file": "avatar_31.gif"
+    },
+    {
+      "id": 32,
+      "symbol": "cross",
+      "comp": "floats",
+      "file": "avatar_32.gif"
+    },
+    {
+      "id": 33,
+      "symbol": "cross",
+      "comp": "ring",
+      "file": "avatar_33.gif"
+    },
+    {
+      "id": 34,
+      "symbol": "cross_rays",
+      "comp": "single",
+      "file": "avatar_34.gif"
+    },
+    {
+      "id": 35,
+      "symbol": "ichthys",
+      "comp": "single",
+      "file": "avatar_35.gif"
+    },
+    {
+      "id": 36,
+      "symbol": "ichthys",
+      "comp": "floats",
+      "file": "avatar_36.gif"
+    },
+    {
+      "id": 37,
+      "symbol": "dove",
+      "comp": "single",
+      "file": "avatar_37.gif"
+    },
+    {
+      "id": 38,
+      "symbol": "chalice",
+      "comp": "single",
+      "file": "avatar_38.gif"
+    },
+    {
+      "id": 39,
+      "symbol": "chalice",
+      "comp": "ring",
+      "file": "avatar_39.gif"
+    },
+    {
+      "id": 40,
+      "symbol": "heart",
+      "comp": "swarm",
+      "file": "avatar_40.gif"
+    },
+    {
+      "id": 41,
+      "symbol": "crescent",
+      "comp": "single",
+      "file": "avatar_41.gif"
+    },
+    {
+      "id": 42,
+      "symbol": "crescent",
+      "comp": "floats",
+      "file": "avatar_42.gif"
+    },
+    {
+      "id": 43,
+      "symbol": "crescent",
+      "comp": "ring",
+      "file": "avatar_43.gif"
+    },
+    {
+      "id": 44,
+      "symbol": "star8",
+      "comp": "single",
+      "file": "avatar_44.gif"
+    },
+    {
+      "id": 45,
+      "symbol": "star8",
+      "comp": "swarm",
+      "file": "avatar_45.gif"
+    },
+    {
+      "id": 46,
+      "symbol": "mosque",
+      "comp": "single",
+      "file": "avatar_46.gif"
+    },
+    {
+      "id": 47,
+      "symbol": "mosque",
+      "comp": "floats",
+      "file": "avatar_47.gif"
+    },
+    {
+      "id": 48,
+      "symbol": "lantern",
+      "comp": "single",
+      "file": "avatar_48.gif"
+    },
+    {
+      "id": 49,
+      "symbol": "lantern",
+      "comp": "floats",
+      "file": "avatar_49.gif"
+    },
+    {
+      "id": 50,
+      "symbol": "lantern",
+      "comp": "ring",
+      "file": "avatar_50.gif"
+    },
+    {
+      "id": 51,
+      "symbol": "khanda",
+      "comp": "single",
+      "file": "avatar_51.gif"
+    },
+    {
+      "id": 52,
+      "symbol": "khanda",
+      "comp": "floats",
+      "file": "avatar_52.gif"
+    },
+    {
+      "id": 53,
+      "symbol": "khanda",
+      "comp": "swarm",
+      "file": "avatar_53.gif"
+    },
+    {
+      "id": 54,
+      "symbol": "ikonkar",
+      "comp": "single",
+      "file": "avatar_54.gif"
+    },
+    {
+      "id": 55,
+      "symbol": "ikonkar",
+      "comp": "floats",
+      "file": "avatar_55.gif"
+    },
+    {
+      "id": 56,
+      "symbol": "khanda",
+      "comp": "driftup",
+      "file": "avatar_56.gif"
+    },
+    {
+      "id": 57,
+      "symbol": "wheel",
+      "comp": "single",
+      "file": "avatar_57.gif"
+    },
+    {
+      "id": 58,
+      "symbol": "wheel",
+      "comp": "ring",
+      "file": "avatar_58.gif"
+    },
+    {
+      "id": 59,
+      "symbol": "wheel",
+      "comp": "spokes",
+      "file": "avatar_59.gif"
+    },
+    {
+      "id": 60,
+      "symbol": "endless",
+      "comp": "single",
+      "file": "avatar_60.gif"
+    },
+    {
+      "id": 61,
+      "symbol": "endless",
+      "comp": "floats",
+      "file": "avatar_61.gif"
+    },
+    {
+      "id": 62,
+      "symbol": "stupa",
+      "comp": "single",
+      "file": "avatar_62.gif"
+    },
+    {
+      "id": 63,
+      "symbol": "stupa",
+      "comp": "floats",
+      "file": "avatar_63.gif"
+    },
+    {
+      "id": 64,
+      "symbol": "flag",
+      "comp": "single",
+      "file": "avatar_64.gif"
+    },
+    {
+      "id": 65,
+      "symbol": "vajra",
+      "comp": "single",
+      "file": "avatar_65.gif"
+    },
+    {
+      "id": 66,
+      "symbol": "vajra",
+      "comp": "floats",
+      "file": "avatar_66.gif"
+    },
+    {
+      "id": 67,
+      "symbol": "torii",
+      "comp": "single",
+      "file": "avatar_67.gif"
+    },
+    {
+      "id": 68,
+      "symbol": "torii",
+      "comp": "floats",
+      "file": "avatar_68.gif"
+    },
+    {
+      "id": 69,
+      "symbol": "yinyang",
+      "comp": "single",
+      "file": "avatar_69.gif"
+    },
+    {
+      "id": 70,
+      "symbol": "yinyang",
+      "comp": "floats",
+      "file": "avatar_70.gif"
+    },
+    {
+      "id": 71,
+      "symbol": "yinyang",
+      "comp": "ring",
+      "file": "avatar_71.gif"
+    },
+    {
+      "id": 72,
+      "symbol": "fire",
+      "comp": "single",
+      "file": "avatar_72.gif"
+    },
+    {
+      "id": 73,
+      "symbol": "fire",
+      "comp": "floats",
+      "file": "avatar_73.gif"
+    },
+    {
+      "id": 74,
+      "symbol": "planet",
+      "comp": "single",
+      "file": "avatar_74.gif"
+    },
+    {
+      "id": 75,
+      "symbol": "planet",
+      "comp": "ring",
+      "file": "avatar_75.gif"
+    },
+    {
+      "id": 76,
+      "symbol": "mandala",
+      "comp": "single",
+      "file": "avatar_76.gif"
+    },
+    {
+      "id": 77,
+      "symbol": "mandala",
+      "comp": "ring",
+      "file": "avatar_77.gif"
+    },
+    {
+      "id": 78,
+      "symbol": "mandala",
+      "comp": "spokes",
+      "file": "avatar_78.gif"
+    },
+    {
+      "id": 79,
+      "symbol": "om",
+      "comp": "driftup",
+      "file": "avatar_79.gif"
+    },
+    {
+      "id": 80,
+      "symbol": "lotus",
+      "comp": "driftup",
+      "file": "avatar_80.gif"
+    },
+    {
+      "id": 81,
+      "symbol": "cross",
+      "comp": "driftup",
+      "file": "avatar_81.gif"
+    },
+    {
+      "id": 82,
+      "symbol": "crescent",
+      "comp": "driftup",
+      "file": "avatar_82.gif"
+    },
+    {
+      "id": 83,
+      "symbol": "khanda",
+      "comp": "ring",
+      "file": "avatar_83.gif"
+    },
+    {
+      "id": 84,
+      "symbol": "star8",
+      "comp": "driftup",
+      "file": "avatar_84.gif"
+    },
+    {
+      "id": 85,
+      "symbol": "wheel",
+      "comp": "driftup",
+      "file": "avatar_85.gif"
+    },
+    {
+      "id": 86,
+      "symbol": "mandala",
+      "comp": "swarm",
+      "file": "avatar_86.gif"
+    },
+    {
+      "id": 87,
+      "symbol": "sun_moon",
+      "comp": "floats",
+      "file": "avatar_87.gif"
+    },
+    {
+      "id": 88,
+      "symbol": "om_flower",
+      "comp": "floats",
+      "file": "avatar_88.gif"
+    },
+    {
+      "id": 89,
+      "symbol": "eye",
+      "comp": "ring",
+      "file": "avatar_89.gif"
+    },
+    {
+      "id": 90,
+      "symbol": "fire",
+      "comp": "ring",
+      "file": "avatar_90.gif"
+    }
+  ]
+}
