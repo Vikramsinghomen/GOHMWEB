@@ -1,5 +1,5 @@
 {
-  "count": 90,
+  "count": 115,
   "items": [
     {
       "id": 1,
@@ -540,6 +540,156 @@
       "symbol": "fire",
       "comp": "ring",
       "file": "avatar_90.gif"
+    },
+    {
+      "id": 91,
+      "symbol": "cute_elephant",
+      "comp": "single",
+      "file": "avatar_91.gif"
+    },
+    {
+      "id": 92,
+      "symbol": "cute_elephant",
+      "comp": "floats",
+      "file": "avatar_92.gif"
+    },
+    {
+      "id": 93,
+      "symbol": "cute_lotus_dragon",
+      "comp": "single",
+      "file": "avatar_93.gif"
+    },
+    {
+      "id": 94,
+      "symbol": "cute_om_cow",
+      "comp": "ring",
+      "file": "avatar_94.gif"
+    },
+    {
+      "id": 95,
+      "symbol": "chibi_ganesha",
+      "comp": "single",
+      "file": "avatar_95.gif"
+    },
+    {
+      "id": 96,
+      "symbol": "baby_krishna",
+      "comp": "floats",
+      "file": "avatar_96.gif"
+    },
+    {
+      "id": 97,
+      "symbol": "cute_hanuman",
+      "comp": "single",
+      "file": "avatar_97.gif"
+    },
+    {
+      "id": 98,
+      "symbol": "baby_turtle",
+      "comp": "ring",
+      "file": "avatar_98.gif"
+    },
+    {
+      "id": 99,
+      "symbol": "cute_mouse",
+      "comp": "floats",
+      "file": "avatar_99.gif"
+    },
+    {
+      "id": 100,
+      "symbol": "baby_peacock",
+      "comp": "single",
+      "file": "avatar_100.gif"
+    },
+    {
+      "id": 101,
+      "symbol": "cute_nandi",
+      "comp": "ring",
+      "file": "avatar_101.gif"
+    },
+    {
+      "id": 102,
+      "symbol": "baby_garuda",
+      "comp": "single",
+      "file": "avatar_102.gif"
+    },
+    {
+      "id": 103,
+      "symbol": "cute_naga",
+      "comp": "floats",
+      "file": "avatar_103.gif"
+    },
+    {
+      "id": 104,
+      "symbol": "baby_swan",
+      "comp": "ring",
+      "file": "avatar_104.gif"
+    },
+    {
+      "id": 105,
+      "symbol": "cute_monkey",
+      "comp": "single",
+      "file": "avatar_105.gif"
+    },
+    {
+      "id": 106,
+      "symbol": "baby_fish",
+      "comp": "floats",
+      "file": "avatar_106.gif"
+    },
+    {
+      "id": 107,
+      "symbol": "cute_lion",
+      "comp": "single",
+      "file": "avatar_107.gif"
+    },
+    {
+      "id": 108,
+      "symbol": "baby_eagle",
+      "comp": "ring",
+      "file": "avatar_108.gif"
+    },
+    {
+      "id": 109,
+      "symbol": "cute_rabbit",
+      "comp": "floats",
+      "file": "avatar_109.gif"
+    },
+    {
+      "id": 110,
+      "symbol": "baby_deer",
+      "comp": "single",
+      "file": "avatar_110.gif"
+    },
+    {
+      "id": 111,
+      "symbol": "cute_owl",
+      "comp": "ring",
+      "file": "avatar_111.gif"
+    },
+    {
+      "id": 112,
+      "symbol": "baby_frog",
+      "comp": "floats",
+      "file": "avatar_112.gif"
+    },
+    {
+      "id": 113,
+      "symbol": "cute_bear",
+      "comp": "single",
+      "file": "avatar_113.gif"
+    },
+    {
+      "id": 114,
+      "symbol": "baby_fox",
+      "comp": "ring",
+      "file": "avatar_114.gif"
+    },
+    {
+      "id": 115,
+      "symbol": "cute_panda",
+      "comp": "floats",
+      "file": "avatar_115.gif"
     }
   ]
 }
