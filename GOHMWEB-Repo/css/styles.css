@@ -192,16 +192,17 @@ a:hover {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 28px;
+    gap: 24px;
     align-items: center;
 }
 
 .nav-links a {
     color: var(--black);
     font-weight: 500;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     position: relative;
     padding: 6px 0;
+    white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -1295,6 +1296,12 @@ a:hover {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1280px) {
+    .nav-tagline {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1306,12 +1313,6 @@ a:hover {
 
     .marquee-track {
         animation-duration: 35s;
-    }
-}
-
-@media (max-width: 768px) {
-    .section {
-        padding: 80px 0;
     }
 
     .nav-links {
@@ -1340,6 +1341,12 @@ a:hover {
 
     .nav-tagline {
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0;
     }
 
     .logo-duo {
