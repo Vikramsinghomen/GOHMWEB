@@ -2,6 +2,29 @@
 # Allow all search engine crawlers full access
 User-agent: *
 Allow: /
+Allow: /llms.txt
+
+# Allow AI / LLM crawlers to read llms.txt
+User-agent: GPTBot
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /llms.txt
+
+User-agent: ClaudeBot
+Allow: /llms.txt
+
+User-agent: Claude-Web
+Allow: /llms.txt
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /llms.txt
+
+User-agent: OAI-SearchBot
+Allow: /llms.txt
 
 # Block private/internal paths if any exist in the future
 # Disallow: /private/
