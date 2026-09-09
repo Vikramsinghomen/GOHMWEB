@@ -159,12 +159,14 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
     height: 76px;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .nav-tagline {
@@ -1302,19 +1304,7 @@ a:hover {
     }
 }
 
-@media (max-width: 1024px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .marquee-track {
-        animation-duration: 35s;
-    }
-
+@media (max-width: 1080px) {
     .nav-links {
         position: fixed;
         top: 76px;
@@ -1341,6 +1331,20 @@ a:hover {
 
     .nav-tagline {
         display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .marquee-track {
+        animation-duration: 35s;
     }
 }
 
