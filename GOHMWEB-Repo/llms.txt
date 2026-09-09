@@ -9,6 +9,7 @@ GreatOhm is a product of GREATOHM (OPC) PRIVATE LIMITED. The app is available on
 - [Home](https://www.greatohm.com/index.html): Landing page describing GreatOhm, its features and download links.
 - [Our Services](https://www.greatohm.com/services.html): Full overview of all service categories and sub-services.
 - [About Us](https://www.greatohm.com/about.html): Company story, mission, and values of GreatOhm (OPC) Private Limited.
+- [Join Us](https://www.greatohm.com/join.html): Careers and expert opportunities — apply from the app via GreatOhm Club or Register as an Expert.
 - [Astrology](https://www.greatohm.com/astrology.html): Vedic astrology, horoscope predictions, kundli, Lal Kitab remedies, and Shubh Mahurat finder.
 - [Numerology](https://www.greatohm.com/numerology.html): Life path, destiny, name and mobile number numerology, Lo Shu Grid and lucky colours.
 - [Tarot & Oracle](https://www.greatohm.com/tarot.html): Tarot card reading, love/career spreads, Celtic Cross, and yes/no draws.
