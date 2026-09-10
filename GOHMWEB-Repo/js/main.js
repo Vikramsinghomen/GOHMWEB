@@ -1,6 +1,6 @@
 /* ============================================================
    GREATOHM — Main JavaScript
-   - Infinite marquee of app screenshots (13 screenshots)
+   - Infinite marquee of app screenshots (34 screenshots)
    - Floating stars background
    - Nav menu, scroll effects, forms
 ============================================================ */
@@ -15,56 +15,140 @@
     ============================================================ */
     const SCREEN_DATA = [
         {
-            title: "Login Screen to Omni Space",
-            desc: "Apps login screen and a command center for all occult sciences — enter and explore.",
+            title: "All Services",
+            desc: "Every occult science in one app — browse, search, and jump straight in.",
         },
         {
-            title: "Daily Horoscope",
-            desc: "Precise daily, weekly and monthly readings powered by real planetary positions.",
+            title: "Skillful Search",
+            desc: "Find any service instantly with a quick, global search.",
         },
         {
-            title: "Kundli & Birth Chart",
-            desc: "Your complete Vedic birth chart with dashas, yogas and deep planetary insight.",
+            title: "Explore the Catalogue",
+            desc: "Scroll through GreatOhm's full line-up of services.",
+        },
+        {
+            title: "Quick Access",
+            desc: "Reach your favourite services right from the bottom bar.",
+        },
+        {
+            title: "Omni Calculator",
+            desc: "One calculator for all your occult science calculations.",
+        },
+        {
+            title: "Ohm Score",
+            desc: "Your personal energy score, at a glance.",
+        },
+        {
+            title: "Ohm Score Breakdown",
+            desc: "Detailed graphs show exactly what is holding your score back.",
+        },
+        {
+            title: "GreatOhm AI",
+            desc: "Instant, personalised guidance whenever you need it.",
+        },
+        {
+            title: "Astrology",
+            desc: "The top astrology services, one tap away.",
+        },
+        {
+            title: "Astrology — Deeper Insights",
+            desc: "Go further with advanced charts and analyses.",
+        },
+        {
+            title: "Astrology — Specialised Reads",
+            desc: "From dashas to yogas, find every reading you need.",
+        },
+        {
+            title: "Astrology — Full Library",
+            desc: "Twenty-plus astrology tools, all in one place.",
+        },
+        {
+            title: "Astrology — Complete Set",
+            desc: "Everything from birth charts to predictions, covered.",
         },
         {
             title: "Numerology",
-            desc: "Life path, destiny number, name and mobile numerology explained in detail.",
+            desc: "Core numerology readings for your numbers.",
+        },
+        {
+            title: "Numerology — Advanced",
+            desc: "Deeper breakdowns of life path, name, and mobile numbers.",
+        },
+        {
+            title: "Numerology — Complete",
+            desc: "The full numerology toolkit, ready to use.",
         },
         {
             title: "Palmistry",
-            desc: "Detailed palm reading guides for lines, mounts and beyond.",
+            desc: "Palm reading guides for lines, mounts, and beyond.",
         },
         {
             title: "Tarot & Oracle",
-            desc: "Daily card pulls and rich, guided spreads for intuitive clarity.",
+            desc: "Daily pulls and guided spreads for intuitive clarity.",
         },
         {
             title: "Vastu Guidance",
-            desc: "Harmonise your home and workspace with practical Vastu remedies.",
+            desc: "Practical Vastu remedies for home and workspace.",
+        },
+        {
+            title: "Vastu — Advanced Remedies",
+            desc: "Deeper guidance for aligning your space.",
         },
         {
             title: "Vedic Calendar",
-            desc: "Everything from Pachanga to tithis to planetary events at your fingertips.",
+            desc: "Panchanga, tithis and planetary events at a glance.",
         },
         {
-            title: "Join us as an expert",
-            desc: "If you feel you have the occult knowledge to share with the world, then join us.",
+            title: "Moon Locator",
+            desc: "Track the Moon's position and phase, live.",
         },
         {
-            title: "Community connect",
-            desc: "Connect with like minded and spiritualy aligned people.",
+            title: "Past Memories",
+            desc: "Explore past-life insights and memory patterns.",
         },
         {
-            title: "Ohm Score breakdown",
-            desc: "Identify what's stopping you from outperforming.",
+            title: "Super Number Generator",
+            desc: "Generate powerful numbers for your mobile.",
+        },
+        {
+            title: "Bank Account Generator",
+            desc: "Find a strong number for your bank account.",
         },
         {
             title: "Remedies & Rituals",
-            desc: "Gentle remedies, mantras and rituals tailored to your planetary profile.",
+            desc: "Gentle remedies and rituals tailored to your profile.",
         },
         {
-            title: "Your Sacred Space",
-            desc: "Your account details, orders, wallet, terms, policies, offers etc..",
+            title: "GreatOhm Club",
+            desc: "Exclusive member benefits inside the GreatOhm Club.",
+        },
+        {
+            title: "Register as an Expert",
+            desc: "Share your occult knowledge with the world.",
+        },
+        {
+            title: "More Menu",
+            desc: "Everything else, neatly organised in one menu.",
+        },
+        {
+            title: "Privacy & Permissions",
+            desc: "Clear controls for your data and privacy.",
+        },
+        {
+            title: "Good to Know",
+            desc: "Important notes and tips before you begin.",
+        },
+        {
+            title: "User Guide",
+            desc: "A simple tutorial to get you started fast.",
+        },
+        {
+            title: "Choose Your Theme",
+            desc: "Make the app feel like yours — pick a theme.",
+        },
+        {
+            title: "Choose Your Path",
+            desc: "A guided gate screen that sets your journey.",
         },
     ];
 
