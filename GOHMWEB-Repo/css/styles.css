@@ -960,6 +960,23 @@ a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footer-badge {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 24px 0 0;
+}
+
+.footer-badge img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.85;
+    transition: opacity 0.25s ease;
+}
+
+.footer-badge a:hover img {
+    opacity: 1;
+}
+
 .footer-tagline {
     display: block;
     margin-top: 10px;
