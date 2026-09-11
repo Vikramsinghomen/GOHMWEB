@@ -1540,3 +1540,37 @@ a:hover {
         height: 340px;
     }
 }
+
+/* Always-visible disclaimer ribbon on the left edge */
+.disclaimer-tab {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 300;
+    padding: 10px 6px;
+    max-height: calc(100vh - 24px);
+    overflow: hidden;
+    background: rgba(17, 17, 17, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.4rem, 1.1vh, 0.56rem);
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    user-select: none;
+    pointer-events: none;
+}
+
+@media (max-width: 560px) {
+    .disclaimer-tab {
+        padding: 8px 4px;
+        border-radius: 0 8px 8px 0;
+    }
+}
