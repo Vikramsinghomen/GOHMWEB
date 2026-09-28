@@ -1,56 +1,35 @@
 # GreatOhm
 
-> GreatOhm is a Vedic-life-guidance app that brings Vedic astrology, numerology, Vaastu Shastra, palmistry, tarot, Vedic calendar information, Nakshatra analysis, and related tools together in one account, with a daily composite indicator called the Ohm Score and curated remedy/product recommendations.
+> GreatOhm (https://www.greatohm.com/) is the world's first Omni app for all occult sciences, built by GREATOHM (OPC) PRIVATE LIMITED. One account, one app: Vedic astrology (kundli, dashas, horoscopes, Panchang, Shubh Mahurat), numerology (life path, Lo Shu Grid, name and mobile number), Vaastu Shastra, palmistry, tarot and oracle readings, Nakshatra analysis, Sade Sati, Manglik Dosha and Lal Kitab remedies — plus the proprietary daily 360 degree **Ohm Score**.
 
-GreatOhm is a product of GREATOHM (OPC) PRIVATE LIMITED. The app is available on Google Play; an App Store version is planned. Users provide profile inputs once (date, time and place of birth with timezone handling, name, phone/country) and the app reuses them across reports, charts, and predictions. Outputs can be exported as PDF reports where provided. The app ships in-app translations for 26 locales.
+Live on Google Play (Android): https://play.google.com/store/apps/details?id=com.greatohm.mobileapp (iOS coming soon). Support: support@greatohm.com. In-app translations across 26 locales.
+
+For the full unabridged reference (every feature, remedy and FAQ answer), see https://www.greatohm.com/llms-full.txt
 
 ## Key Pages
 
-- [Home](https://www.greatohm.com/index.html): Landing page describing GreatOhm, its features and download links.
-- [Our Services](https://www.greatohm.com/services.html): Full overview of all service categories and sub-services.
-- [About Us](https://www.greatohm.com/about.html): Company story, mission, and values of GreatOhm (OPC) Private Limited.
-- [Join Us](https://www.greatohm.com/join.html): Careers and expert opportunities — apply from the app via GreatOhm Club or Register as an Expert.
-- [Astrology](https://www.greatohm.com/astrology.html): Vedic astrology, horoscope predictions, kundli, Lal Kitab remedies, and Shubh Mahurat finder.
-- [Numerology](https://www.greatohm.com/numerology.html): Life path, destiny, name and mobile number numerology, Lo Shu Grid and lucky colours.
-- [Tarot & Oracle](https://www.greatohm.com/tarot.html): Tarot card reading, love/career spreads, Celtic Cross, and yes/no draws.
-- [Vaastu Shastra](https://www.greatohm.com/vastu.html): Residential and commercial Vaastu analysis with AI floor-plan tools.
-- [Palmistry](https://www.greatohm.com/palmistry.html): AI palm reading, palm lines, career/wellness readings and compatibility.
-- [Kundli & Birth Chart](https://www.greatohm.com/kundli.html): Vedic birth chart generation, kundli matching for marriage, and muhurat.
-- [Kundli Matching for Marriage](https://www.greatohm.com/kundli-matching.html): Ashtakoota Guna Milan and 36-guna compatibility for marriage.
-- [Sade Sati Check](https://www.greatohm.com/sade-sati.html): Saturn transit phases for the Moon sign and Sade Sati remedies.
-- [Manglik Dosha Check](https://www.greatohm.com/manglik-dosha.html): Mangal Dosha and Kaal Sarp Dosha check and cancellation.
-- [Lal Kitab Remedies](https://www.greatohm.com/lal-kitab.html): Lal Kitab-based astrological solutions and practical upay.
-- [Shubh Mahurat Finder](https://www.greatohm.com/shubh-mahurat.html): Auspicious dates and time windows for weddings and events.
-- [Lo Shu Grid](https://www.greatohm.com/lo-shu-grid.html): Chinese magic-square numerology from the birth date.
-- [Nakshatra Finder](https://www.greatohm.com/nakshatra.html): Birth-star lookup with profile, dasha and compatibility.
-- [Vastu Remedies](https://www.greatohm.com/vastu-remedies.html): Dosha correction and practical Vastu remedies for home and office.
-- [Privacy Policy](https://www.greatohm.com/privacy.html): Data collection and protection under the DPDP Act, 2023.
-- [Terms of Service](https://www.greatohm.com/terms.html): Terms for the app, consultations, Club and subscriptions.
-- [Delete Account](https://www.greatohm.com/delete-account.html): How to delete the account and request data erasure.
+- [Home](https://www.greatohm.com/): App overview, features, FAQs, store links and download QR.
+- [Our Services](https://www.greatohm.com/services.html): Complete catalog of all occult branches, consultations and tools.
+- [About Us](https://www.greatohm.com/about.html): Company, mission and leadership.
+- [Astrology](https://www.greatohm.com/astrology.html): Horoscopes, birth charts, dashas, consultations.
+- [Kundli](https://www.greatohm.com/kundli.html): Janam Kundli, divisional charts, PDF reports.
+- [Kundli Matching](https://www.greatohm.com/kundli-matching.html): Ashtakoota Guna Milan (36 gunas), Nadi and Bhakoot dosha.
+- [Numerology](https://www.greatohm.com/numerology.html): Life path, destiny, name and mobile number numerology.
+- [Lo Shu Grid](https://www.greatohm.com/lo-shu-grid.html): 3x3 magic square numerology and balancing remedies.
+- [Vaastu](https://www.greatohm.com/vastu.html): Residential and commercial Vaastu, AI floor-plan scanning.
+- [Vastu Remedies](https://www.greatohm.com/vastu-remedies.html): Non-destructive dosha remedies.
+- [Palmistry](https://www.greatohm.com/palmistry.html): AI palm reading, lines and mounts.
+- [Tarot](https://www.greatohm.com/tarot.html): Daily pulls, spreads, Celtic Cross, Runes, I-Ching.
+- [Nakshatra](https://www.greatohm.com/nakshatra.html): Birth star, pada, ruling planet.
+- [Sade Sati](https://www.greatohm.com/sade-sati.html): 7.5 year Saturn transit analysis and cures.
+- [Manglik Dosha](https://www.greatohm.com/manglik-dosha.html): Mars placement, cancellation, Kaal Sarp.
+- [Lal Kitab](https://www.greatohm.com/lal-kitab.html): Practical day-to-day upay remedies.
+- [Shubh Mahurat](https://www.greatohm.com/shubh-mahurat.html): Auspicious dates and time windows for weddings, Griha Pravesh and business launches.
+- [Join Us](https://www.greatohm.com/join.html): Careers and expert registration.
+- [Privacy](https://www.greatohm.com/privacy.html) | [Terms](https://www.greatohm.com/terms.html) | [Delete Account](https://www.greatohm.com/delete-account.html)
 
-## Services at a Glance
+## Optional
 
-- **Astrology** — Daily/weekly/monthly/yearly horoscopes, Lal Kitab remedies, kundli and birth chart, Vedic astrology, kundli matching (Ashtakoota), Talk to Pandit Ji, WhatsApp horoscope alerts, Shubh Mahurat finder, problems & solutions, astrology PDF report, Nakshatra finder, Mangal Dosha / Kaal Sarp Dosha check, Sade Sati, Western natal chart, Moon phases, daily panchang, wealth probability, travel shoola, shoola muhurta, shoola chakra, shoola dasa, and register-as-expert.
-- **Oracle & Divination** — Lenormand cards, angel numbers, Elder Futhark runes, Baralho Cigano, BaZi (Four Pillars), Ifa oracle, and I-Ching.
-- **Numerology** — Numerology dashboard, life path & cycles, partner compatibility, name numerology, mobile number numerology, Lo Shu Grid, foreign settlement, profession suitability, business card analysis, lucky colours & months, numerology PDF report, Talk to Numerology Expert, suitable mobile number generation, personal cycle, super name generator, bank account number check, and flat number check.
-- **Vaastu Shastra** — Residential Vaastu, commercial Vaastu, Talk to Vaastu Expert, auspicious build, map conversion, directions vs colour guide, Vaastu dosha rectification, and house plan library.
-- **Palmistry** — AI palm reading, Talk to Palmist, palm lines deep dive, palm career reading, palm partner compatibility, palm wellness insights, and palm elements.
-- **Tarot** — Tarot card reading, Talk to Tarot Expert, tarot love spread, tarot career spread, Celtic Cross, and tarot yes/no.
-- **Vedic Calendar** — Tithis, planetary events, holidays, Grahan Darshan (eclipses with Sutak), and events.
-- **Nakshatra** — Nakshatra profile, dasha, transit, and compatibility.
-- **Past Memories & Games** — Moon Locator, expert chat history, FLAMES game, GreatOhm VIP Circle, and good-to-have remedies.
-- **GreatOhm Club** — Membership applications, openings, translator roles and content contributions.
-- **GreatOhm AI** — Dream interpretation, Ask GreatOhm AI chat, AI palm reading, AI business card analysis, and AI Vaastu map analysis.
-
-## Cross-cutting Capabilities
-
-- Live expert consultations (voice, video, chat) with masked calling and appointment booking.
-- Recommendations and Great Remedies engine driven by Ohm Score weak-area pointers.
-- Horoscope generation with push notifications and WhatsApp delivery.
-- Learn With Us resources, moderated community groups, support tickets and feature suggestions.
-- Ohm Tokens, wallet, cart, orders, pricing plans, subscriptions, invoices and refunds.
-
-## Contact
-
-- Support email: support@greatohm.com
-- LinkedIn: GreatOhm (OPC) Private Limited
+- [Full reference](https://www.greatohm.com/llms-full.txt)
+- [XML sitemap](https://www.greatohm.com/sitemap.xml)
+- [About GreatOhm (OPC) Private Limited](https://www.linkedin.com/company/greatohm-opc-private-limited)

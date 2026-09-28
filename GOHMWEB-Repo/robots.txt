@@ -3,31 +3,47 @@
 User-agent: *
 Allow: /
 Allow: /llms.txt
+Allow: /llms-full.txt
 
-# Allow AI / LLM crawlers to read llms.txt
+# Explicitly allow and prioritize AI search engines & LLM crawlers
 User-agent: GPTBot
-Allow: /llms.txt
+Allow: /
 
 User-agent: ChatGPT-User
-Allow: /llms.txt
-
-User-agent: ClaudeBot
-Allow: /llms.txt
-
-User-agent: Claude-Web
-Allow: /llms.txt
-
-User-agent: PerplexityBot
-Allow: /llms.txt
-
-User-agent: Google-Extended
-Allow: /llms.txt
+Allow: /
 
 User-agent: OAI-SearchBot
-Allow: /llms.txt
+Allow: /
 
-# Block private/internal paths if any exist in the future
-# Disallow: /private/
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
 
 # Point crawlers to the XML sitemap
 Sitemap: https://www.greatohm.com/sitemap.xml
