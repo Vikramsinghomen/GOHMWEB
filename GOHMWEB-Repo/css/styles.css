@@ -9,6 +9,10 @@
     --turquoise-light: #5eead4;
     --turquoise-soft: #ccfbf1;
     --black: #111111;
+    /* CosmicColors.lovePink - used for all body/heading text.
+       Kept separate from --black so backgrounds and borders that
+       legitimately use black are unaffected. */
+    --love-pink: #e91e63;
     --gray: #555555;
     --gray-light: #f5f7f7;
     --white: #ffffff;
@@ -35,7 +39,7 @@ html {
 
 body {
     font-family: var(--sans);
-    color: var(--black);
+    color: var(--love-pink);
     background: var(--white);
     line-height: 1.7;
     overflow-x: hidden;
@@ -215,7 +219,7 @@ a:hover {
 }
 
 .nav-links a {
-    color: var(--black);
+    color: var(--love-pink);
     font-weight: 500;
     font-size: 0.86rem;
     position: relative;
@@ -337,7 +341,7 @@ a:hover {
     font-size: clamp(2.3rem, 5.5vw, 4.2rem);
     font-weight: 800;
     line-height: 1.15;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 22px;
     letter-spacing: -0.5px;
 }
@@ -377,7 +381,7 @@ a:hover {
     font-family: var(--serif);
     font-size: clamp(1.9rem, 4vw, 2.9rem);
     font-weight: 700;
-    color: var(--black);
+    color: var(--love-pink);
     text-align: center;
     margin-bottom: 18px;
     position: relative;
@@ -440,7 +444,7 @@ a:hover {
     font-family: var(--serif);
     font-size: 1.45rem;
     margin-bottom: 12px;
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .split-col p {
@@ -492,7 +496,7 @@ a:hover {
     font-family: var(--serif);
     font-size: 1.25rem;
     margin-bottom: 10px;
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .card p {
@@ -646,7 +650,7 @@ a:hover {
 .caption-box h3 {
     font-family: var(--serif);
     font-size: 1.8rem;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 10px;
     transition: var(--transition);
 }
@@ -723,7 +727,7 @@ a:hover {
 .feature-body h3 {
     font-family: var(--serif);
     font-size: 1.3rem;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 6px;
 }
 
@@ -880,7 +884,7 @@ a:hover {
     font-family: var(--serif);
     font-size: 1.45rem;
     margin-bottom: 18px;
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .contact-info p {
@@ -1041,7 +1045,7 @@ a:hover {
 .sub-page .page-title {
     font-family: var(--serif);
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 30px;
     text-align: center;
 }
@@ -1064,14 +1068,14 @@ a:hover {
 
 .sub-page .page-body h2 {
     font-family: var(--serif);
-    color: var(--black);
+    color: var(--love-pink);
     font-size: 1.5rem;
     margin: 36px 0 10px;
 }
 
 .sub-page .page-body h3 {
     font-family: var(--serif);
-    color: var(--black);
+    color: var(--love-pink);
     font-size: 1.2rem;
     margin: 28px 0 8px;
 }
@@ -1187,14 +1191,14 @@ a:hover {
     text-align: center;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .science-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-md);
     border-color: rgba(20, 184, 166, 0.35);
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .science-card .sc-icon {
@@ -1207,7 +1211,7 @@ a:hover {
     font-family: var(--serif);
     font-size: 1.15rem;
     margin-bottom: 6px;
-    color: var(--black);
+    color: var(--love-pink);
 }
 
 .science-card p {
@@ -1242,7 +1246,7 @@ a:hover {
 .service-item h3 {
     font-family: var(--serif);
     font-size: 1.08rem;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 6px;
 }
 
@@ -1290,7 +1294,7 @@ a:hover {
 .join-card h2 {
     font-family: var(--serif);
     font-size: 1.35rem;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 10px;
 }
 
@@ -1313,7 +1317,7 @@ a:hover {
     counter-increment: join-step;
     position: relative;
     padding-left: 34px;
-    color: var(--black);
+    color: var(--love-pink);
     font-size: 0.95rem;
     line-height: 1.55;
 }
@@ -1369,7 +1373,7 @@ a:hover {
     font-family: var(--serif);
     font-size: 1.08rem;
     font-weight: 600;
-    color: var(--black);
+    color: var(--love-pink);
     padding: 20px 26px;
     display: flex;
     justify-content: space-between;
@@ -1424,7 +1428,7 @@ a:hover {
 .cta-box h2 {
     font-family: var(--serif);
     font-size: 1.7rem;
-    color: var(--black);
+    color: var(--love-pink);
     margin-bottom: 10px;
 }
 
