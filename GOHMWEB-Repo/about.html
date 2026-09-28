@@ -52,12 +52,7 @@
     ============================================================ -->
     <header class="site-header">
         <nav class="nav container">
-            <a href="index.html#home" class="nav-brand">
-                <span class="nav-logo">
-                    <img src="assets/logo1-trim.png" alt="GreatOhm logo" class="nav-logo-a">
-                </span>
-                <span class="nav-tagline">A product of GREATOHM (OPC) PRIVATE LIMITED</span>
-            </a>
+            <!-- Row 1: page links (full width, wraps instead of clipping) -->
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#what">What is GreatOhm?</a></li>
@@ -69,7 +64,15 @@
                 <li><a href="join.html">Join Us</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            <!-- Row 2: logo + company name, right corner -->
+            <a href="index.html#home" class="nav-brand">
+                <!-- 📝 EDIT HERE: small nav logo (uses processed transparent logos) -->
+                <span class="nav-logo">
+                    <img src="assets/logo1-trim.png" alt="GreatOhm logo" class="nav-logo-a">
+                </span>
+                <span class="nav-tagline">A product of GREATOHM (OPC) PRIVATE LIMITED</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
         </nav>
     </header>
 
@@ -186,27 +189,52 @@
     ============================================================ -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="assets/logo1-trim.png" alt="GreatOhm" class="footer-logo">
-                <!-- 📝 EDIT HERE: Footer tagline -->
-                <p>World's first Omni app for all Occult Sciences.</p>
+            <div class="footer-grid">
+            <!-- 📝 EDIT HERE: Footer brand + tagline -->
+                <div class="footer-brand">
+                    <img src="assets/logo1-trim.png" alt="GreatOhm" class="footer-logo">
+                    <p>World's first Omni app for all Occult Sciences.</p>
+                </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
             </div>
-            <ul class="footer-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Our Services</a></li>
-                <li><a href="join.html">Join Us</a></li>
-                <li><a href="astrology.html">Astrology</a></li>
-                <li><a href="numerology.html">Numerology</a></li>
-                <li><a href="tarot.html">Tarot</a></li>
-                <li><a href="vastu.html">Vastu</a></li>
-                <li><a href="palmistry.html">Palmistry</a></li>
-                <li><a href="kundli.html">Kundli</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms & Conditions</a></li>
-                <li><a href="delete-account.html">Delete Account</a></li>
-            </ul>
-            <!-- 📝 EDIT HERE: Footer copyright -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Sciences</h4>
+                <ul class="footer-links">
+                    <li><a href="astrology.html">Astrology</a></li>
+                    <li><a href="numerology.html">Numerology</a></li>
+                    <li><a href="tarot.html">Tarot</a></li>
+                    <li><a href="vastu.html">Vastu</a></li>
+                    <li><a href="palmistry.html">Palmistry</a></li>
+                    <li><a href="kundli.html">Kundli</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="delete-account.html">Delete Account</a></li>
+                </ul>
+            </div>
+            </div>
+<div class="footer-badges">
+                <a href="https://launchbuff.com/products/greatohm-ofqg4k" target="_blank" rel="noopener noreferrer" title="Featured on LaunchBuff" class="footer-badge-item">
+                    <img src="https://launchbuff.com/badge-featured-dark.svg" alt="Featured on LaunchBuff" height="44" loading="lazy" />
+                </a>
+                <a href="https://launchkiwi.com/p/greatohm" target="_blank" rel="noopener noreferrer" title="Featured on LaunchKiwi" class="footer-badge-item">
+                    <img src="https://launchkiwi.com/badge-light.svg" alt="Featured on LaunchKiwi" height="44" loading="lazy" />
+                </a>
+                <a href="https://smolspot.com/projects/greatohm?utm_source=badge" target="_blank" rel="noopener noreferrer" title="Featured on Smol Spot" class="footer-badge-item">
+                    <img src="https://smolspot.com/smolspot/images/badges/featured-on-light.svg" alt="Featured on Smol Spot" height="44" loading="lazy" />
+                </a>
+            </div>
             <p class="footer-copy">© 2026 GreatOhm. All rights reserved.<br><span class="footer-tagline">A product of GREATOHM (OPC) PRIVATE LIMITED</span></p>
         </div>
     </footer>

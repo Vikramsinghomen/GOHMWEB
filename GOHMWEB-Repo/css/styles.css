@@ -30,7 +30,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 124px;
 }
 
 body {
@@ -138,7 +138,10 @@ a:hover {
     transform: translateY(-3px);
 }
 
-/* ---------- Header / Nav ---------- */
+/* ---------- Header / Nav ----------
+   Two-row layout:
+   row 1 = full-width page link bar (wraps instead of being clipped)
+   row 2 = logo + company name, right corner                        */
 .site-header {
     position: fixed;
     top: 0;
@@ -157,22 +160,26 @@ a:hover {
 
 .nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    height: 76px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    height: auto;
+    padding: 10px 0 12px;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
     flex-shrink: 0;
+    order: 2;
+    margin-top: 8px;
 }
 
 .nav-tagline {
     font-size: 0.72rem;
     color: #6b7280;
-    margin-left: 14px;
     white-space: nowrap;
 }
 
@@ -192,16 +199,21 @@ a:hover {
 }
 
 .nav-links {
+    order: 1;
     display: flex;
-    list-style: none;
-    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    list-style: none;
+    gap: 4px 22px;
+    width: 100%;
+    min-width: 0;
 }
 
 .nav-links a {
     color: var(--black);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     position: relative;
     padding: 6px 0;
     white-space: nowrap;
@@ -264,7 +276,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 0 80px;
+    padding: 150px 0 80px;
     background:
         radial-gradient(ellipse at 20% -10%, rgba(20, 184, 166, 0.08), transparent 60%),
         radial-gradient(ellipse at 80% 110%, rgba(20, 184, 166, 0.08), transparent 60%),
@@ -906,7 +918,10 @@ a:hover {
     align-self: flex-start;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer ----------
+   Balanced 4-column grid: brand + Explore / Sciences / Legal.
+   Replaces the old `1fr auto` layout, which left a large void on the left
+   and a single very tall link column on the right.                      */
 .site-footer {
     background: var(--black);
     color: #ddd;
@@ -915,10 +930,10 @@ a:hover {
     z-index: 1;
 }
 
-.footer-inner {
+.footer-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 40px;
+    grid-template-columns: 1.7fr 1fr 1fr 1fr;
+    gap: 36px 28px;
     align-items: start;
 }
 
@@ -936,6 +951,15 @@ a:hover {
     font-size: 0.95rem;
 }
 
+.footer-col-title {
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+}
+
 .footer-links {
     list-style: none;
     display: flex;
@@ -945,6 +969,7 @@ a:hover {
 
 .footer-links a {
     color: #bbb;
+    font-size: 0.92rem;
 }
 
 .footer-links a:hover {
@@ -1424,12 +1449,36 @@ a:hover {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1280px) {
-    .nav-tagline {
-        display: none;
+    .nav-links {
+        gap: 4px 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
     }
 }
 
 @media (max-width: 1080px) {
+    /* Single row: brand on the left, hamburger on the right, links in the drawer */
+    .nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0;
+    }
+
+    .nav-brand {
+        order: 0;
+        margin-top: 0;
+        justify-content: flex-start;
+    }
+
+    .nav-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
     .nav-links {
         position: fixed;
         top: 76px;
@@ -1450,10 +1499,6 @@ a:hover {
         transform: translateX(0);
     }
 
-    .nav-toggle {
-        display: flex;
-    }
-
     .nav-tagline {
         display: none;
     }
@@ -1466,6 +1511,10 @@ a:hover {
 
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
     .marquee-track {
@@ -1513,9 +1562,14 @@ a:hover {
         border-radius: 18px;
     }
 
-    .footer-inner {
+    .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .footer-brand p {
+        max-width: none;
+        margin: 0 auto;
     }
 
     .footer-links {
