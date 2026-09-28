@@ -960,20 +960,39 @@ a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-badge {
+.footer-badges {
     grid-column: 1 / -1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
     margin: 24px 0 0;
 }
 
-.footer-badge img {
+.footer-badge-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    transition: transform 0.25s ease;
+}
+
+.footer-badge-item:hover {
+    transform: translateY(-2px);
+}
+
+.footer-badge-item img {
+    height: 44px;
+    width: auto;
     max-width: 100%;
-    height: auto;
-    opacity: 0.85;
+    object-fit: contain;
+    border-radius: 8px;
+    opacity: 0.88;
     transition: opacity 0.25s ease;
 }
 
-.footer-badge a:hover img {
+.footer-badge-item:hover img {
     opacity: 1;
 }
 
