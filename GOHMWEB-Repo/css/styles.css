@@ -139,9 +139,9 @@ a:hover {
 }
 
 /* ---------- Header / Nav ----------
-   Two-row layout:
-   row 1 = full-width page link bar (wraps instead of being clipped)
-   row 2 = logo + company name, right corner                        */
+   Single row: brand pinned to the extreme left, page links
+   fill the remaining width and sit against the right edge
+   (they wrap onto a second line rather than being clipped).  */
 .site-header {
     position: fixed;
     top: 0;
@@ -160,21 +160,25 @@ a:hover {
 
 .nav {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    flex-wrap: wrap;
     height: auto;
     padding: 10px 0 12px;
+    /* header uses more of the viewport than the 1180px body container */
+    width: min(1560px, 95%);
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 14px;
+    justify-content: flex-start;
+    gap: 12px;
     flex-shrink: 0;
-    order: 2;
-    margin-top: 8px;
+    order: 0;
+    margin: 0;
 }
 
 .nav-tagline {
@@ -202,11 +206,11 @@ a:hover {
     order: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
-    gap: 4px 22px;
-    width: 100%;
+    gap: 4px 16px;
+    flex: 1 1 auto;
     min-width: 0;
 }
 
@@ -1455,6 +1459,11 @@ a:hover {
 
     .nav-links a {
         font-size: 0.82rem;
+    }
+
+    /* keep brand + links on one line: drop the long company tagline */
+    .nav-tagline {
+        display: none;
     }
 }
 
