@@ -19,6 +19,7 @@ const MENU = [
     ['Features', 'index.html#features', '#features'],
     ['Sciences', 'index.html#sciences', '#sciences'],
     ['FAQ', 'index.html#faq', '#faq'],
+    ['Blog', 'blog.html', 'blog.html'],
     ['Download', 'index.html#download', '#download'],
     ['Join Us', 'join.html', 'join.html'],
     ['Contact', 'index.html#contact', '#contact'],

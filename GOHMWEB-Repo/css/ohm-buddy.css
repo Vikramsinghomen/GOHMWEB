@@ -1,0 +1,223 @@
+/* ============================================================
+   GREATOHM — Ohm Buddy mascot
+   Floating buddy (every page) + hero buddy (Download section).
+   Brand: pink body var(--love-pink) #e91e63, turquoise accents
+   var(--turquoise) #14b8a6. Pure CSS/SVG/JS, no dependencies.
+   ============================================================ */
+
+/* ---------- Floating buddy ---------- */
+.ohm-buddy {
+    position: fixed;
+    right: 18px;
+    bottom: 22px;
+    width: 88px;
+    z-index: 240;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    animation: ohmFloat 3.4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 22px rgba(233, 30, 99, 0.28));
+    transition: transform 0.25s ease;
+}
+
+.ohm-buddy:hover,
+.ohm-buddy:focus-visible {
+    transform: scale(1.07);
+}
+
+.ohm-buddy svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* Speech bubble */
+.ohm-bubble {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px);
+    width: max-content;
+    max-width: 220px;
+    background: var(--white);
+    border: 2px solid var(--turquoise);
+    border-radius: 14px;
+    padding: 9px 13px;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--love-pink);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    transform-origin: bottom right;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.ohm-bubble::after {
+    content: "";
+    position: absolute;
+    right: 26px;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    background: var(--white);
+    border-right: 2px solid var(--turquoise);
+    border-bottom: 2px solid var(--turquoise);
+    transform: rotate(45deg);
+}
+
+.ohm-buddy.is-talking .ohm-bubble {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ---------- Shared SVG animation parts ---------- */
+.ohm-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ohmBlink 5.4s infinite;
+}
+
+@keyframes ohmBlink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    94.5% { transform: scaleY(0.08); }
+    97% { transform: scaleY(1); }
+}
+
+.ohm-body-g {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+}
+
+.ohm-arm-right {
+    transform-box: fill-box;
+    transform-origin: 50% 12%;
+}
+
+.ohm-buddy.is-waving .ohm-arm-right,
+.ohm-hero.is-waving .ohm-arm-right {
+    animation: ohmWave 0.65s ease-in-out 2;
+}
+
+@keyframes ohmWave {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-34deg); }
+    65% { transform: rotate(16deg); }
+}
+
+@keyframes ohmFloat {
+    0%, 100% { margin-bottom: 0; }
+    50% { margin-bottom: 10px; }
+}
+
+/* Celebrate: jump + sparkle burst */
+.ohm-buddy.is-celebrating,
+.ohm-hero.is-celebrating .ohm-hero-svg {
+    animation: ohmJump 0.95s ease;
+}
+
+@keyframes ohmJump {
+    0% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-26px) scale(1.08, 0.94); }
+    55% { transform: translateY(0) scale(0.95, 1.05); }
+    75% { transform: translateY(-10px) scale(1.03); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.ohm-sparkle {
+    position: absolute;
+    inset: -14px;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 1.1rem;
+}
+
+.ohm-buddy.is-celebrating .ohm-sparkle,
+.ohm-hero.is-celebrating .ohm-sparkle {
+    animation: ohmSparkle 0.95s ease-out;
+}
+
+@keyframes ohmSparkle {
+    0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    35% { opacity: 1; transform: scale(1.25) rotate(12deg); }
+    100% { opacity: 0; transform: scale(1.5) rotate(-10deg); }
+}
+
+/* ---------- Hero buddy (Download section) ---------- */
+.ohm-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 6px auto 18px;
+    max-width: 320px;
+    text-align: center;
+}
+
+.ohm-hero-svg {
+    width: 168px;
+    max-width: 52vw;
+    animation: ohmFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 14px 28px rgba(20, 184, 166, 0.3));
+}
+
+.ohm-hero-svg svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.ohm-hero-caption {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--love-pink);
+    margin: 0;
+}
+
+.ohm-hero-sub {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+/* ---------- Reduced motion: buddy stays still, messages only ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .ohm-buddy,
+    .ohm-hero-svg {
+        animation: none;
+    }
+
+    .ohm-eyes {
+        animation: none;
+    }
+
+    .ohm-buddy.is-waving .ohm-arm-right,
+    .ohm-hero.is-waving .ohm-arm-right,
+    .ohm-buddy.is-celebrating,
+    .ohm-hero.is-celebrating .ohm-hero-svg {
+        animation: none;
+    }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 560px) {
+    .ohm-buddy {
+        width: 68px;
+        right: 12px;
+        bottom: 18px;
+    }
+
+    .ohm-bubble {
+        max-width: 176px;
+        font-size: 0.74rem;
+    }
+
+    .ohm-hero-svg {
+        width: 132px;
+    }
+}
