@@ -142,14 +142,14 @@ function head(p, faqJson) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -169,7 +169,11 @@ function head(p, faqJson) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": ${JSON.stringify(p.keywords)}
+                "keywords": ${JSON.stringify(p.keywords)},
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -269,7 +273,7 @@ const POSTS = [
     {
         slug: 'blog-50-questions-indians-ask-astrologers',
         category: 'Astrology',
-        title: 'The 50 Questions Indians Ask Astrologers Most — Answered',
+        title: '50 Questions Indians Ask Astrologers — Answered',
         date: '2026-10-10',
         description: 'Real questions Indian seekers ask astrologers, drawn from studies of hundreds of thousands of consultations. Clear, calm answers on career, marriage timing, doshas, muhurat, money and health.',
         keywords: 'questions to ask astrologer, what to ask astrologer in india, when will i get married astrology, when will i get a job astrology, career astrology questions, marriage timing kundli, dosha remedies',
@@ -502,7 +506,7 @@ const POSTS = [
     {
         slug: 'blog-50-astrology-questions-worldwide',
         category: 'Astrology',
-        title: 'The 50 Astrology Questions People Search For Worldwide — Answered',
+        title: '50 Astrology Questions the World Asks — Answered',
         date: '2026-10-10',
         description: 'The astrology questions people google most around the world, from "what is my rising sign" to "is astrology real." Clear, friendly answers on charts, compatibility, Mercury retrograde and more.',
         keywords: 'what is my rising sign, is astrology real, birth chart meaning, zodiac compatibility, mercury retrograde, sun moon rising sign, most searched astrology questions, astrology for beginners',

@@ -142,14 +142,14 @@ function head(p, faqJson) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -169,7 +169,11 @@ function head(p, faqJson) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": ${JSON.stringify(p.keywords)}
+                "keywords": ${JSON.stringify(p.keywords)},
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -269,7 +273,7 @@ const POSTS = [
     {
         slug: 'blog-50-numerology-questions-indians-ask',
         category: 'Numerology',
-        title: 'The 50 Numerology Questions Indians Ask Most — Answered',
+        title: '50 Numerology Questions Indians Ask — Answered',
         date: '2026-10-10',
         description: 'The numerology questions Indian seekers ask most — Mulank, Bhagyank, Namank, name correction, lucky numbers, mobile and vehicle number numerology — answered plainly and without fear.',
         keywords: 'numerology questions, mulank, bhagyank, namank, name correction numerology, lucky number, mobile number numerology, vehicle number numerology, ank jyotish, numerology in india',
@@ -495,7 +499,7 @@ const POSTS = [
     {
         slug: 'blog-50-numerology-questions-worldwide',
         category: 'Numerology',
-        title: 'The 50 Numerology Questions People Search For Worldwide — Answered',
+        title: '50 Numerology Questions the World Asks — Answered',
         date: '2026-10-10',
         description: 'The numerology questions people google most around the world — life path numbers, master numbers, angel numbers, compatibility and "is numerology real?" — answered in plain, friendly language.',
         keywords: 'numerology questions, what is numerology, life path number, master numbers, angel numbers, destiny number, numerology compatibility, is numerology real, numerology for beginners',

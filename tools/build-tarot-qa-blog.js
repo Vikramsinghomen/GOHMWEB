@@ -143,14 +143,14 @@ function head(p, faqJson) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -170,7 +170,11 @@ function head(p, faqJson) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": ${JSON.stringify(p.keywords)}
+                "keywords": ${JSON.stringify(p.keywords)},
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -470,7 +474,7 @@ const POSTS = [
     {
         slug: 'blog-50-tarot-questions-worldwide',
         category: 'Tarot',
-        title: 'The 50 Tarot Questions People Search For Worldwide — Answered',
+        title: '50 Tarot Questions the World Asks — Answered',
         date: '2026-10-10',
         description: 'The tarot questions people google most worldwide — what tarot is, Major and Minor Arcana, the four suits, reversed cards, spreads, how to read your own cards and "is tarot real?" — answered in plain language.',
         keywords: 'tarot questions, what is tarot, how to read tarot, major arcana, minor arcana, tarot suits, reversed tarot, tarot spread, can you read your own tarot, is tarot real, tarot for beginners',

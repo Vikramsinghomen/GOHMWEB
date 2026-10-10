@@ -144,14 +144,14 @@ function head(p, faqJson) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -171,7 +171,11 @@ function head(p, faqJson) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": ${JSON.stringify(p.keywords)}
+                "keywords": ${JSON.stringify(p.keywords)},
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -478,7 +482,7 @@ const POSTS = [
     {
         slug: 'blog-50-palmistry-questions-worldwide',
         category: 'Palmistry',
-        title: 'The 50 Palmistry Questions People Search For Worldwide — Answered',
+        title: '50 Palmistry Questions the World Asks — Answered',
         date: '2026-10-10',
         description: 'The palm-reading questions people google most worldwide — the four major lines, mounts, hand shapes, dominant hand, whether lines change and "is palm reading real?" — answered in plain, friendly language.',
         keywords: 'palmistry questions, how to read palms, what is palmistry, heart line meaning, head line, life line, fate line, dominant hand, do palm lines change, is palm reading real, palm reading for beginners',

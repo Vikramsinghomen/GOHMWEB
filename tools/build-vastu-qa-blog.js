@@ -143,14 +143,14 @@ function head(p, faqJson) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -170,7 +170,11 @@ function head(p, faqJson) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": ${JSON.stringify(p.keywords)}
+                "keywords": ${JSON.stringify(p.keywords)},
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -481,7 +485,7 @@ const POSTS = [
     {
         slug: 'blog-50-vastu-fengshui-questions-worldwide',
         category: 'Vastu',
-        title: 'The 50 Vaastu & Feng Shui Questions People Search For Worldwide — Answered',
+        title: '50 Vaastu & Feng Shui Questions — Answered',
         date: '2026-10-10',
         description: 'The spatial-harmony questions people search for worldwide — what is Vaastu, what is feng shui, chi, bagua, the five elements, bed placement, mirrors, wealth corners and more — answered clearly.',
         keywords: 'what is vastu, what is feng shui, vastu vs feng shui, bagua map, five elements, chi energy, feng shui bedroom, feng shui for beginners, wealth corner, front door feng shui',

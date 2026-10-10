@@ -141,14 +141,14 @@ function head(p) {
     <meta property="og:title" content="${p.title} | GreatOhm">
     <meta property="og:description" content="${p.description}">
     <meta property="og:url" content="${url}">
-    <meta property="og:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta property="og:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="GreatOhm — ${p.title}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${p.title} | GreatOhm">
     <meta name="twitter:description" content="${p.description}">
-    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/index-og.png">
+    <meta name="twitter:image" content="https://www.greatohm.com/assets/og/${p.slug}-og.png">
     <meta name="twitter:image:alt" content="GreatOhm — ${p.title}">
 
     <!-- JSON-LD: BlogPosting + BreadcrumbList + FAQPage (AI-search visibility) -->
@@ -168,7 +168,11 @@ function head(p) {
                 "mainEntityOfPage": "${url}",
                 "inLanguage": "en",
                 "articleSection": "${p.category}",
-                "keywords": "${p.keywords}"
+                "keywords": "${p.keywords}",
+                "speakableSpecification": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".page-title", ".faq-q"]
+                }
             },
             {
                 "@type": "BreadcrumbList",
@@ -254,7 +258,7 @@ const POSTS = [
     {
         slug: 'blog-chaldean-vs-pythagorean-numerology',
         category: 'Numerology',
-        title: 'Chaldean vs Pythagorean Numerology: Which System Is Right for You?',
+        title: 'Chaldean vs Pythagorean Numerology — Which Is Right?',
         date: '2026-10-10',
         description: 'Chaldean and Pythagorean numerology both turn letters into numbers, but they assign very different values. Learn the origins, letter charts and best uses of each so you pick the right system.',
         keywords: 'chaldean vs pythagorean numerology, chaldean numerology, pythagorean numerology, numerology systems, name numerology',
@@ -450,7 +454,7 @@ const POSTS = [
     {
         slug: 'blog-reversed-tarot-cards',
         category: 'Tarot',
-        title: 'What Do Reversed Tarot Cards Mean? A Calm Beginner\u2019s Guide',
+        title: 'Reversed Tarot Cards — A Calm Beginners Guide',
         date: '2026-10-10',
         description: 'A reversed tarot card is not bad luck. Learn what reversals mean, the main ways to read them, and a simple method to interpret them calmly in any spread.',
         keywords: 'reversed tarot card meaning, reversed tarot cards, tarot reversals, what do reversed cards mean, tarot card meanings',
@@ -515,7 +519,7 @@ const POSTS = [
     {
         slug: 'blog-sade-sati-three-phases',
         category: 'Astrology',
-        title: 'Sade Sati: Understanding Saturn\u2019s Three 2.5-Year Phases',
+        title: 'Sade Sati: Saturns Three 2.5-Year Phases',
         date: '2026-10-10',
         description: 'Sade Sati is the 7.5-year Saturn transit through three signs around your Moon sign. Break it into its three phases to understand what it asks of you and how to move through it calmly.',
         keywords: 'sade sati, sade sati phases, 7.5 year saturn transit, shani sade sati, sade sati remedies, saturn transit',
@@ -584,7 +588,7 @@ const POSTS = [
     {
         slug: 'blog-lo-shu-grid-missing-numbers',
         category: 'Numerology',
-        title: 'Lo Shu Grid Missing Numbers: What They Mean &amp; How to Balance',
+        title: 'Lo Shu Grid Missing Numbers — Meanings & Remedies',
         date: '2026-10-10',
         description: 'The Lo Shu Grid is the 3x3 magic square built from your birth date. Learn what an empty cell really means, what each missing number suggests, and gentle ways to balance it.',
         keywords: 'lo shu grid, lo shu grid missing numbers, missing numbers in lo shu grid, lo shu grid remedies, numerology grid',
