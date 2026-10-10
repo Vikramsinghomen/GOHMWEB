@@ -11,12 +11,18 @@
     var REDUCED = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* Mascot artwork (brand pink #e91e63 + turquoise #14b8a6) */
+    /* Mascot artwork (brand pink #e91e63 + turquoise #14b8a6).
+       Ganesha-inspired cues, kept tiny and playful: mini mukut crown,
+       tilak dot, rounded listening ears, trunk-curve smile. A mascot
+       with a blessing — never a depiction of the deity himself. */
     var SVG =
         '<svg viewBox="0 0 120 132" role="img" aria-label="Ohm Buddy, the GreatOhm mascot">' +
-        '<line x1="60" y1="16" x2="60" y2="4" stroke="#0d9488" stroke-width="4" stroke-linecap="round"/>' +
-        '<circle cx="60" cy="6" r="5" fill="#14b8a6"/>' +
-        '<circle cx="60" cy="6" r="2" fill="#ccfbf1"/>' +
+        '<g class="ohm-ears">' +
+        '<ellipse cx="9" cy="58" rx="14" ry="23" fill="#c2185b"/>' +
+        '<ellipse cx="111" cy="58" rx="14" ry="23" fill="#c2185b"/>' +
+        '<ellipse cx="9" cy="58" rx="7" ry="12" fill="#e91e63" opacity="0.55"/>' +
+        '<ellipse cx="111" cy="58" rx="7" ry="12" fill="#e91e63" opacity="0.55"/>' +
+        "</g>" +
         '<g class="ohm-arm-left">' +
         '<rect x="6" y="62" width="16" height="34" rx="8" fill="#14b8a6"/>' +
         "</g>" +
@@ -31,6 +37,15 @@
         '<ellipse cx="60" cy="88" rx="26" ry="22" fill="#ccfbf1" opacity="0.9"/>' +
         '<circle cx="34" cy="78" r="7" fill="#5eead4" opacity="0.65"/>' +
         '<circle cx="86" cy="78" r="7" fill="#5eead4" opacity="0.65"/>' +
+        '<g class="ohm-mukut">' +
+        '<path d="M34 32 Q60 46 86 32 L82 12 Q71 20 60 20 Q49 20 38 12 Z" fill="#14b8a6"/>' +
+        '<path d="M34 32 Q60 46 86 32 L85 27 Q60 40 35 27 Z" fill="#0d9488"/>' +
+        '<circle cx="46" cy="26" r="3" fill="#ccfbf1"/>' +
+        '<circle cx="60" cy="29" r="3.8" fill="#ccfbf1"/>' +
+        '<circle cx="74" cy="26" r="3" fill="#ccfbf1"/>' +
+        '<circle cx="60" cy="18" r="3.2" fill="#e91e63" stroke="#ccfbf1" stroke-width="1.4"/>' +
+        "</g>" +
+        '<circle cx="60" cy="47" r="3.4" fill="#ffd54f" opacity="0.95"/>' +
         '<g class="ohm-eyes">' +
         '<circle cx="45" cy="60" r="11" fill="#ffffff"/>' +
         '<circle cx="75" cy="60" r="11" fill="#ffffff"/>' +
@@ -39,7 +54,7 @@
         '<circle cx="49" cy="60" r="1.8" fill="#ffffff"/>' +
         '<circle cx="75" cy="60" r="1.8" fill="#ffffff"/>' +
         "</g>" +
-        '<path d="M48 78 Q60 88 72 78" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>' +
+        '<path d="M48 76 Q62 88 74 76 Q68 86 60 86 Q56 86 55 82" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>' +
         '<path d="M92 26 l2.2 5.4 5.4 2.2 -5.4 2.2 -2.2 5.4 -2.2 -5.4 -5.4 -2.2 5.4 -2.2 Z" fill="#5eead4"/>' +
         "</g>" +
         "</svg>";
