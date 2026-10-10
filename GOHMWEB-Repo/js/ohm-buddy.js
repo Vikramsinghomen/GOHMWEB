@@ -34,7 +34,7 @@
         '<ellipse cx="78" cy="124" rx="13" ry="7" fill="#0d9488"/>' +
         '<g class="ohm-body-g">' +
         '<ellipse cx="60" cy="70" rx="46" ry="50" fill="#e91e63"/>' +
-        '<ellipse cx="60" cy="88" rx="26" ry="22" fill="#ccfbf1" opacity="0.9"/>' +
+        '<ellipse cx="60" cy="96" rx="17" ry="13" fill="#ccfbf1" opacity="0.45"/>' +
         '<circle cx="34" cy="78" r="7" fill="#5eead4" opacity="0.65"/>' +
         '<circle cx="86" cy="78" r="7" fill="#5eead4" opacity="0.65"/>' +
         '<g class="ohm-mukut">' +
