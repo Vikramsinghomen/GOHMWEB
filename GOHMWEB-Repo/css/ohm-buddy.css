@@ -8,16 +8,36 @@
 /* ---------- Floating buddy ---------- */
 .ohm-buddy {
     position: fixed;
-    right: 18px;
-    bottom: 22px;
-    width: 88px;
+    right: 20px;
+    bottom: 26px;
+    width: 92px;
     z-index: 240;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     animation: ohmFloat 3.4s ease-in-out infinite;
-    filter: drop-shadow(0 10px 22px rgba(233, 30, 99, 0.28));
+    filter: drop-shadow(0 12px 22px rgba(233, 30, 99, 0.22));
     transition: transform 0.25s ease;
+}
+
+/* soft aura so the buddy sits on the page instead of floating loose */
+.ohm-buddy::before {
+    content: "";
+    position: absolute;
+    inset: -12px -8px -6px -8px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side,
+            rgba(233, 30, 99, 0.20),
+            rgba(20, 184, 166, 0.13) 62%,
+            transparent 78%);
+    filter: blur(9px);
+    z-index: -1;
+    animation: ohmAura 3.4s ease-in-out infinite;
+}
+
+@keyframes ohmAura {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.06); }
 }
 
 .ohm-buddy:hover,
@@ -36,19 +56,19 @@
 .ohm-bubble {
     position: absolute;
     right: 0;
-    bottom: calc(100% + 10px);
+    bottom: calc(100% + 12px);
     width: max-content;
-    max-width: 220px;
+    max-width: 230px;
     background: var(--white);
-    border: 2px solid var(--turquoise);
-    border-radius: 14px;
-    padding: 9px 13px;
+    border: 1px solid rgba(20, 184, 166, 0.35);
+    border-radius: 16px;
+    padding: 10px 14px;
     font-family: var(--sans);
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     font-weight: 600;
     line-height: 1.45;
-    color: var(--love-pink);
-    box-shadow: var(--shadow-md);
+    color: #d81b60;
+    box-shadow: 0 12px 28px rgba(13, 148, 136, 0.16), 0 2px 6px rgba(17, 17, 17, 0.05);
     opacity: 0;
     transform: translateY(8px) scale(0.96);
     transform-origin: bottom right;
@@ -59,13 +79,13 @@
 .ohm-bubble::after {
     content: "";
     position: absolute;
-    right: 26px;
-    bottom: -8px;
-    width: 14px;
-    height: 14px;
+    right: 28px;
+    bottom: -6px;
+    width: 11px;
+    height: 11px;
     background: var(--white);
-    border-right: 2px solid var(--turquoise);
-    border-bottom: 2px solid var(--turquoise);
+    border-right: 1px solid rgba(20, 184, 166, 0.35);
+    border-bottom: 1px solid rgba(20, 184, 166, 0.35);
     transform: rotate(45deg);
 }
 
@@ -192,6 +212,10 @@
         animation: none;
     }
 
+    .ohm-buddy::before {
+        animation: none;
+    }
+
     .ohm-eyes {
         animation: none;
     }
@@ -207,7 +231,7 @@
 /* ---------- Small screens ---------- */
 @media (max-width: 560px) {
     .ohm-buddy {
-        width: 68px;
+        width: 74px;
         right: 12px;
         bottom: 18px;
     }
