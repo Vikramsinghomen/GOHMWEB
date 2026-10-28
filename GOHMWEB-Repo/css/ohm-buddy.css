@@ -110,22 +110,27 @@
 .ohm-body-g {
     transform-box: fill-box;
     transform-origin: center bottom;
+    animation: ohmBreathe 4.4s ease-in-out infinite;
 }
 
-.ohm-arm-right {
-    transform-box: fill-box;
-    transform-origin: 50% 12%;
+@keyframes ohmBreathe {
+    0%, 100% { transform: scale(1, 1); }
+    50% { transform: scale(1.025, 0.975); }
 }
 
-.ohm-buddy.is-waving .ohm-arm-right,
-.ohm-hero.is-waving .ohm-arm-right {
-    animation: ohmWave 0.65s ease-in-out 2;
+/* greeting nod, used on load, hover and when the hero buddy scrolls in */
+.ohm-buddy.is-waving {
+    animation: ohmFloat 3.4s ease-in-out infinite, ohmNod 0.7s ease-in-out 2;
 }
 
-@keyframes ohmWave {
+.ohm-hero.is-waving .ohm-hero-svg {
+    animation: ohmFloat 4s ease-in-out infinite, ohmNod 0.7s ease-in-out 2;
+}
+
+@keyframes ohmNod {
     0%, 100% { transform: rotate(0deg); }
-    30% { transform: rotate(-34deg); }
-    65% { transform: rotate(16deg); }
+    35% { transform: rotate(-7deg); }
+    70% { transform: rotate(5deg); }
 }
 
 @keyframes ohmFloat {
@@ -220,8 +225,12 @@
         animation: none;
     }
 
-    .ohm-buddy.is-waving .ohm-arm-right,
-    .ohm-hero.is-waving .ohm-arm-right,
+    .ohm-body-g {
+        animation: none;
+    }
+
+    .ohm-buddy.is-waving,
+    .ohm-hero.is-waving .ohm-hero-svg,
     .ohm-buddy.is-celebrating,
     .ohm-hero.is-celebrating .ohm-hero-svg {
         animation: none;

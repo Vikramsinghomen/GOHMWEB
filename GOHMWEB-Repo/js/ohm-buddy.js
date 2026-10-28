@@ -11,78 +11,46 @@
     var REDUCED = window.matchMedia &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* Mascot artwork (brand pink #e91e63 + turquoise #14b8a6).
-       A rounded "cosmic companion": mukut crown, tilak, listening ears
-       and a trunk-curve smile as a playful blessing cue - never a
-       depiction of the deity. Flat shapes with soft shading so it stays
-       crisp at 70-90px. */
+    function narrowScreen() {
+        // Below this the hero buttons span the full width, and a greeting
+        // bubble would sit right on top of the Download button.
+        return window.innerWidth < 900;
+    }
+
+    /* Mascot artwork, in the spirit of the flat "avatar lab" look:
+       one solid organic silhouette, no outlines, and two bold rounded
+       eyes that lean outward. Reads clearly down to ~60px, and the
+       gentle breathing squash gives it life without any detail noise. */
     var SVG =
-        '<svg viewBox="0 0 120 132" role="img" aria-label="Ohm Buddy, the GreatOhm mascot">' +
-        '<g class="ohm-ears">' +
-        '<ellipse cx="16" cy="68" rx="13" ry="21" fill="#c2185b"/>' +
-        '<ellipse cx="104" cy="68" rx="13" ry="21" fill="#c2185b"/>' +
-        '<ellipse cx="16" cy="68" rx="6.5" ry="11" fill="#e91e63" opacity="0.55"/>' +
-        '<ellipse cx="104" cy="68" rx="6.5" ry="11" fill="#e91e63" opacity="0.55"/>' +
-        "</g>" +
-        '<g class="ohm-arm-left">' +
-        '<rect x="4" y="70" width="17" height="30" rx="8.5" fill="#14b8a6"/>' +
-        '<circle cx="12.5" cy="70" r="9" fill="#14b8a6"/>' +
-        '<circle cx="12.5" cy="68" r="4" fill="#5eead4" opacity="0.55"/>' +
-        "</g>" +
-        '<g class="ohm-arm-right">' +
-        '<rect x="99" y="70" width="17" height="30" rx="8.5" fill="#14b8a6"/>' +
-        '<circle cx="107.5" cy="70" r="9" fill="#14b8a6"/>' +
-        '<circle cx="107.5" cy="68" r="4" fill="#5eead4" opacity="0.55"/>' +
-        "</g>" +
-        '<ellipse cx="42" cy="122" rx="13" ry="7" fill="#0d9488"/>' +
-        '<ellipse cx="78" cy="122" rx="13" ry="7" fill="#0d9488"/>' +
+        '<svg viewBox="0 0 120 120" role="img" aria-label="Ohm Buddy, the GreatOhm mascot">' +
         '<g class="ohm-body-g">' +
-        '<ellipse cx="60" cy="74" rx="45" ry="47" fill="#e91e63"/>' +
-        '<ellipse cx="45" cy="52" rx="20" ry="16" fill="#ff7aa8" opacity="0.32"/>' +
-        '<ellipse cx="60" cy="112" rx="30" ry="11" fill="#c2185b" opacity="0.30"/>' +
-        '<g class="ohm-mukut">' +
-        '<path d="M32 34 Q60 46 88 34 L84 16 L72 24 L60 10 L48 24 L36 16 Z" fill="#14b8a6"/>' +
-        '<path d="M32 34 Q60 46 88 34 L86.5 29 Q60 40 33.5 29 Z" fill="#0d9488"/>' +
-        '<circle cx="45" cy="31" r="2.2" fill="#ccfbf1" opacity="0.85"/>' +
-        '<circle cx="60" cy="33.5" r="2.6" fill="#ccfbf1" opacity="0.85"/>' +
-        '<circle cx="75" cy="31" r="2.2" fill="#ccfbf1" opacity="0.85"/>' +
-        '<circle cx="60" cy="17" r="3.4" fill="#e91e63" stroke="#ccfbf1" stroke-width="1.4"/>' +
-        "</g>" +
-        '<ellipse cx="60" cy="50" rx="2.2" ry="3" fill="#5eead4"/>' +
+        '<path d="M60 7C85 7 105 25 106 51C107 80 87 108 60 108C33 108 13 80 14 51C15 25 35 7 60 7Z" fill="#e91e63"/>' +
         '<g class="ohm-eyes">' +
-        '<ellipse cx="45" cy="62" rx="11" ry="12" fill="#ffffff"/>' +
-        '<ellipse cx="75" cy="62" rx="11" ry="12" fill="#ffffff"/>' +
-        '<circle cx="47" cy="64" r="5.4" fill="#141414"/>' +
-        '<circle cx="73" cy="64" r="5.4" fill="#141414"/>' +
-        '<circle cx="48.8" cy="61.6" r="2" fill="#ffffff"/>' +
-        '<circle cx="74.8" cy="61.6" r="2" fill="#ffffff"/>' +
+        '<rect x="35" y="45" width="15" height="32" rx="7.5" fill="#141414" transform="rotate(-9 42.5 61)"/>' +
+        '<rect x="70" y="45" width="15" height="32" rx="7.5" fill="#141414" transform="rotate(9 77.5 61)"/>' +
         "</g>" +
-        '<ellipse cx="29" cy="81" rx="7" ry="4.4" fill="#ff8fb3" opacity="0.55"/>' +
-        '<ellipse cx="91" cy="81" rx="7" ry="4.4" fill="#ff8fb3" opacity="0.55"/>' +
-        '<path d="M47 82 Q60 94 73 82 Q70 90 62 90 Q58 90 56 88" stroke="#ffffff" stroke-width="4.2" fill="none" stroke-linecap="round"/>' +
-        '<path d="M95 38 l1.8 4.4 4.4 1.8 -4.4 1.8 -1.8 4.4 -1.8 -4.4 -4.4 -1.8 4.4 -1.8 Z" fill="#5eead4" opacity="0.9"/>' +
         "</g>" +
         "</svg>";
 
     /* Messages */
     var GREETINGS = [
-        "Namaste! I am Ohm Buddy - your cosmic companion.",
+        "Namaste! I am Ohm Buddy — your cosmic companion.",
         "Hey there! Curious about your Ohm Score today?",
-        "Welcome to GreatOhm! Astrology, numerology, tarot and more - one app."
+        "Welcome to GreatOhm! Astrology, numerology, tarot and more — one app."
     ];
     var TIPS = [
-        "Psst - your daily Ohm Score blends all five sciences into one number.",
+        "Psst — your daily Ohm Score blends all five sciences into one number.",
         "Try the tarot pull for a quick daily reflection.",
-        "Numerology fans: your Mulank shapes your day - check the app!",
+        "Numerology fans: your Mulank shapes your day — check the app!",
         "A tidy entrance = happy Vaastu energy.",
-        "Your palm lines tell a story - explore palmistry in the app."
+        "Your palm lines tell a story — explore palmistry in the app."
     ];
     var CHEERS = [
         "Yay! Great choice!",
         "Woohoo! The stars approve!",
         "Let's gooo!"
     ];
-    var NUDGE = "Still here? Tap me - I have cosmic tips!";
+    var NUDGE = "Still here? Tap me — I have cosmic tips!";
 
     var tipIndex = 0;
     var hero = null;
@@ -197,8 +165,9 @@
     document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(buddy);
         setTimeout(function () {
-            say(buddy, bubble, pick(GREETINGS), 6000);
             wave(buddy);
+            if (narrowScreen()) return;
+            say(buddy, bubble, pick(GREETINGS), 6000);
         }, 1200);
         buddy.addEventListener("mouseenter", function () {
             wave(buddy);
@@ -217,7 +186,7 @@
             }, { once: true, passive: true });
         });
         setTimeout(function () {
-            if (!interacted && !buddy.classList.contains("is-talking")) {
+            if (!interacted && !narrowScreen() && !buddy.classList.contains("is-talking")) {
                 say(buddy, bubble, NUDGE, 6000);
                 wave(buddy);
             }
