@@ -113,25 +113,41 @@
     animation: ohmBreathe 4.4s ease-in-out infinite;
 }
 
-/* the ring orbits the planet: back arc and front arc spin in lockstep so
-   the occlusion stays believable, while the faint outer ring drifts the
-   other way for depth */
-.ohm-ring-back,
-.ohm-ring-front {
-    transform-box: view-box;
-    transform-origin: 60px 62px;
-    animation: ohmRingSpin 26s linear infinite;
+/* The ring is drawn flat, so rotating it would only tilt it - the spin is
+   carried by mint streaks sliding along the band instead. Back path and
+   front arc are the same curve with the same dash phase (the front arc is
+   literally the first half of the back path), so a streak glides from the
+   front half onto the back half with no seam at the tips.
+
+   Geometry: ellipse a=52 b=15 -> measured perimeter 226.897, so half is
+   113.448 and the dash period is a quarter of that (56.724 = 9 + 47.724).
+   Four streaks ride the ring, and one period of travel loops seamlessly. */
+.ohm-orbit {
+    stroke-dasharray: 9 47.724;
+    animation: ohmOrbitRun 2.2s linear infinite;
+    filter: drop-shadow(0 0 1.5px rgba(204, 251, 241, 0.9));
 }
 
-.ohm-ring-faint {
-    transform-box: view-box;
-    transform-origin: 60px 62px;
-    animation: ohmRingSpin 44s linear infinite reverse;
+@keyframes ohmOrbitRun {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -56.724; }
 }
 
-@keyframes ohmRingSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* hover: the ring holds still so you can look at the little guy */
+.ohm-buddy:hover .ohm-orbit,
+.ohm-buddy:focus-visible .ohm-orbit,
+.ohm-hero:hover .ohm-orbit {
+    animation-play-state: paused;
+}
+
+.ohm-buddy:hover .ohm-body-g,
+.ohm-hero:hover .ohm-body-g {
+    animation-play-state: paused;
+}
+
+/* pupils follow the cursor (see trackPointer in ohm-buddy.js) */
+.ohm-pupils {
+    transition: transform 0.18s ease-out;
 }
 
 @keyframes ohmBreathe {
@@ -250,10 +266,12 @@
         animation: none;
     }
 
-    .ohm-ring-back,
-    .ohm-ring-front,
-    .ohm-ring-faint {
+    .ohm-orbit {
         animation: none;
+    }
+
+    .ohm-pupils {
+        transition: none;
     }
 
     .ohm-buddy.is-waving,

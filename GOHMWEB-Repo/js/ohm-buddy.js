@@ -18,27 +18,39 @@
     }
 
     /* Mascot artwork: the flat avatar-lab face (solid body, two bold
-       rounded eyes) crossed with a ringed planet. The turquoise ring is
-       drawn twice - a full ellipse behind the body, then its lower arc in
-       front - so it genuinely wraps around the pink sphere, and both
-       halves spin in lockstep (see .ohm-ring-* in ohm-buddy.css). */
+       rounded eyes) crossed with a ringed planet. One turquoise ring, drawn
+       flat so it reads as horizontal: a full loop behind the body plus its
+       lower half in front, which is what makes the ring wrap the sphere.
+
+       The ring is not rotated - a flat ring is symmetric, so rotating it
+       would only tilt it. Its spin is carried by mint streaks sliding along
+       the band. Both halves are the *same* curve with the same dash phase
+       and the front arc is literally the first half of the back path, so a
+       streak glides from the front to the back without a seam at the tips
+       (see .ohm-orbit in ohm-buddy.css).
+
+       The eyes sit in their own .ohm-pupils group so pointer tracking can
+       translate them while .ohm-eyes keeps handling the blink. */
+    var RING_BACK = "M8 62A52 15 0 0 0 112 62A52 15 0 0 0 8 62";
+    var RING_FRONT = "M8 62A52 15 0 0 0 112 62";
     var SVG =
         '<svg viewBox="0 0 120 120" role="img" aria-label="Ohm Buddy, the GreatOhm mascot">' +
-        '<g class="ohm-ring-faint">' +
-        '<ellipse cx="60" cy="62" rx="56" ry="19" transform="rotate(18 60 62)" fill="none" stroke="#5eead4" stroke-width="2.5" opacity="0.55"/>' +
-        "</g>" +
         '<g class="ohm-ring-back">' +
-        '<ellipse cx="60" cy="62" rx="52" ry="16.5" transform="rotate(-13 60 62)" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
+        '<path d="' + RING_BACK + '" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
+        '<path class="ohm-orbit" d="' + RING_BACK + '" fill="none" stroke="#ccfbf1" stroke-width="5" stroke-linecap="round"/>' +
         "</g>" +
         '<g class="ohm-body-g">' +
         '<circle cx="60" cy="62" r="35" fill="#e91e63"/>' +
         '<g class="ohm-eyes">' +
+        '<g class="ohm-pupils">' +
         '<rect x="41" y="44" width="11" height="24" rx="5.5" fill="#141414" transform="rotate(-9 46.5 56)"/>' +
         '<rect x="68" y="44" width="11" height="24" rx="5.5" fill="#141414" transform="rotate(9 73.5 56)"/>' +
         "</g>" +
         "</g>" +
+        "</g>" +
         '<g class="ohm-ring-front">' +
-        '<path d="M9.33 73.7A52 16.5 -13 0 0 110.67 50.3" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
+        '<path d="' + RING_FRONT + '" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
+        '<path class="ohm-orbit" d="' + RING_FRONT + '" fill="none" stroke="#ccfbf1" stroke-width="5" stroke-linecap="round"/>' +
         "</g>" +
         "</svg>";
 
@@ -172,6 +184,70 @@
         });
     }
 
+    /* ---------- Eyes follow the pointer ---------- */
+    /* Both eyes move together, like a pair of pupils. Travel is capped in
+       viewBox units so they never slide off the face, and the vertical range
+       is tighter than the horizontal one. */
+    var LOOK = 3.8;
+    var pupils = [];
+    var pointer = { x: 0, y: 0, has: false };
+    var lookQueued = false;
+
+    function collectPupils() {
+        pupils = Array.prototype.slice.call(
+            document.querySelectorAll(".ohm-pupils")
+        );
+    }
+
+    function look() {
+        lookQueued = false;
+        if (!pointer.has) return;
+        for (var i = 0; i < pupils.length; i++) {
+            var el = pupils[i];
+            var svg = el.ownerSVGElement;
+            if (!svg) continue;
+            var box = svg.getBoundingClientRect();
+            if (!box.width || !box.height) continue;
+            var dx = pointer.x - (box.left + box.width / 2);
+            var dy = pointer.y - (box.top + box.height / 2);
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (!dist) continue;
+            // full deflection once the pointer is a short way out
+            var reach = Math.min(1, dist / (box.width * 1.2));
+            var ox = (dx / dist) * LOOK * reach;
+            var oy = (dy / dist) * LOOK * reach * 0.8;
+            el.style.transform =
+                "translate(" + ox.toFixed(2) + "px," + oy.toFixed(2) + "px)";
+        }
+    }
+
+    function queueLook() {
+        if (lookQueued) return;
+        lookQueued = true;
+        window.requestAnimationFrame(look);
+    }
+
+    function resetLook() {
+        pointer.has = false;
+        for (var i = 0; i < pupils.length; i++) {
+            pupils[i].style.transform = "";
+        }
+    }
+
+    function trackPointer() {
+        if (REDUCED) return; // reduced motion: the buddy stays still
+        document.addEventListener("mousemove", function (e) {
+            pointer.x = e.clientX;
+            pointer.y = e.clientY;
+            pointer.has = true;
+            queueLook();
+        }, { passive: true });
+        // the buddy may scroll under a stationary cursor
+        window.addEventListener("scroll", queueLook, { passive: true });
+        document.addEventListener("mouseleave", resetLook);
+        document.addEventListener("touchstart", resetLook, { passive: true });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(buddy);
         setTimeout(function () {
@@ -202,5 +278,7 @@
             }
         }, 50000);
         mountHero();
+        collectPupils();
+        trackPointer();
     });
 })();
