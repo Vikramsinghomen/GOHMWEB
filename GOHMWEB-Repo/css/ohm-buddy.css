@@ -113,6 +113,27 @@
     animation: ohmBreathe 4.4s ease-in-out infinite;
 }
 
+/* the ring orbits the planet: back arc and front arc spin in lockstep so
+   the occlusion stays believable, while the faint outer ring drifts the
+   other way for depth */
+.ohm-ring-back,
+.ohm-ring-front {
+    transform-box: view-box;
+    transform-origin: 60px 62px;
+    animation: ohmRingSpin 26s linear infinite;
+}
+
+.ohm-ring-faint {
+    transform-box: view-box;
+    transform-origin: 60px 62px;
+    animation: ohmRingSpin 44s linear infinite reverse;
+}
+
+@keyframes ohmRingSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 @keyframes ohmBreathe {
     0%, 100% { transform: scale(1, 1); }
     50% { transform: scale(1.025, 0.975); }
@@ -226,6 +247,12 @@
     }
 
     .ohm-body-g {
+        animation: none;
+    }
+
+    .ohm-ring-back,
+    .ohm-ring-front,
+    .ohm-ring-faint {
         animation: none;
     }
 

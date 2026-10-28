@@ -17,18 +17,28 @@
         return window.innerWidth < 900;
     }
 
-    /* Mascot artwork, in the spirit of the flat "avatar lab" look:
-       one solid organic silhouette, no outlines, and two bold rounded
-       eyes that lean outward. Reads clearly down to ~60px, and the
-       gentle breathing squash gives it life without any detail noise. */
+    /* Mascot artwork: the flat avatar-lab face (solid body, two bold
+       rounded eyes) crossed with a ringed planet. The turquoise ring is
+       drawn twice - a full ellipse behind the body, then its lower arc in
+       front - so it genuinely wraps around the pink sphere, and both
+       halves spin in lockstep (see .ohm-ring-* in ohm-buddy.css). */
     var SVG =
         '<svg viewBox="0 0 120 120" role="img" aria-label="Ohm Buddy, the GreatOhm mascot">' +
-        '<g class="ohm-body-g">' +
-        '<path d="M60 7C85 7 105 25 106 51C107 80 87 108 60 108C33 108 13 80 14 51C15 25 35 7 60 7Z" fill="#e91e63"/>' +
-        '<g class="ohm-eyes">' +
-        '<rect x="35" y="45" width="15" height="32" rx="7.5" fill="#141414" transform="rotate(-9 42.5 61)"/>' +
-        '<rect x="70" y="45" width="15" height="32" rx="7.5" fill="#141414" transform="rotate(9 77.5 61)"/>' +
+        '<g class="ohm-ring-faint">' +
+        '<ellipse cx="60" cy="62" rx="56" ry="19" transform="rotate(18 60 62)" fill="none" stroke="#5eead4" stroke-width="2.5" opacity="0.55"/>' +
         "</g>" +
+        '<g class="ohm-ring-back">' +
+        '<ellipse cx="60" cy="62" rx="52" ry="16.5" transform="rotate(-13 60 62)" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
+        "</g>" +
+        '<g class="ohm-body-g">' +
+        '<circle cx="60" cy="62" r="35" fill="#e91e63"/>' +
+        '<g class="ohm-eyes">' +
+        '<rect x="41" y="44" width="11" height="24" rx="5.5" fill="#141414" transform="rotate(-9 46.5 56)"/>' +
+        '<rect x="68" y="44" width="11" height="24" rx="5.5" fill="#141414" transform="rotate(9 73.5 56)"/>' +
+        "</g>" +
+        "</g>" +
+        '<g class="ohm-ring-front">' +
+        '<path d="M9.33 73.7A52 16.5 -13 0 0 110.67 50.3" fill="none" stroke="#14b8a6" stroke-width="7"/>' +
         "</g>" +
         "</svg>";
 
