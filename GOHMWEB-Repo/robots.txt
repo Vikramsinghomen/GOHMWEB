@@ -5,6 +5,9 @@ Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
 
+# Internal editor — never index, never follow
+Disallow: /app-preview-admin.html
+
 # Explicitly allow and prioritize AI search engines & LLM crawlers
 User-agent: GPTBot
 Allow: /

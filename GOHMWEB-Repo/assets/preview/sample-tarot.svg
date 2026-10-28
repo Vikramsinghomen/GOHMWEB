@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640" role="img" aria-label="Sample tarot spread screen placeholder">
+  <defs>
+    <linearGradient id="h" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="640" fill="#ffffff"/>
+  <rect width="360" height="96" fill="url(#h)"/>
+  <text x="24" y="44" font-family="Georgia, serif" font-size="20" fill="#ffffff">Tarot Spread</text>
+  <text x="24" y="70" font-family="Arial, sans-serif" font-size="12" fill="#ccfbf1">Past &#183; present &#183; future</text>
+  <g>
+    <rect x="30" y="150" width="90" height="150" rx="8" fill="#f5f7f7" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="135" y="150" width="90" height="150" rx="8" fill="#f5f7f7" stroke="#0d9488" stroke-width="1.5"/>
+    <rect x="240" y="150" width="90" height="150" rx="8" fill="#f5f7f7" stroke="#0d9488" stroke-width="1.5"/>
+    <g fill="#e91e63" opacity="0.5">
+      <circle cx="75" cy="215" r="14"/>
+      <circle cx="180" cy="215" r="14"/>
+      <circle cx="285" cy="215" r="14"/>
+    </g>
+  </g>
+  <g fill="#e5e7eb">
+    <rect x="30" y="324" width="300" height="12" rx="6"/>
+    <rect x="30" y="348" width="250" height="10" rx="5"/>
+    <rect x="30" y="370" width="270" height="10" rx="5"/>
+    <rect x="30" y="392" width="180" height="10" rx="5"/>
+  </g>
+  <g fill="#f5f7f7">
+    <rect x="24" y="432" width="312" height="52" rx="10"/>
+    <rect x="24" y="496" width="312" height="52" rx="10"/>
+  </g>
+  <text x="180" y="616" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">SAMPLE SCREENSHOT</text>
+</svg>

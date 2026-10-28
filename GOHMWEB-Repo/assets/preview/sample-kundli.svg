@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640" role="img" aria-label="Sample kundli screen placeholder">
+  <defs>
+    <linearGradient id="h" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="640" fill="#ffffff"/>
+  <rect width="360" height="96" fill="url(#h)"/>
+  <text x="24" y="44" font-family="Georgia, serif" font-size="20" fill="#ffffff">Your Kundli</text>
+  <text x="24" y="70" font-family="Arial, sans-serif" font-size="12" fill="#ccfbf1">Birth chart &#183; dasha &#183; yogas</text>
+  <g stroke="#0d9488" stroke-width="1.5" fill="none" opacity="0.85">
+    <rect x="48" y="128" width="264" height="264" rx="6"/>
+    <path d="M48 128 L312 392 M312 128 L48 392 M180 128 L312 260 L180 392 L48 260 Z"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="10" fill="#e91e63" text-anchor="middle">
+    <text x="114" y="200">Mo</text><text x="180" y="176">Su</text><text x="246" y="200">Ma</text>
+    <text x="114" y="330">Ju</text><text x="180" y="356">Ve</text><text x="246" y="330">Sa</text>
+    <text x="180" y="260" font-size="12">Lagna</text>
+  </g>
+  <g fill="#f5f7f7">
+    <rect x="24" y="420" width="312" height="44" rx="10"/>
+    <rect x="24" y="476" width="312" height="44" rx="10"/>
+    <rect x="24" y="532" width="312" height="44" rx="10"/>
+  </g>
+  <g fill="#e5e7eb">
+    <rect x="40" y="436" width="120" height="10" rx="5"/>
+    <rect x="40" y="492" width="150" height="10" rx="5"/>
+    <rect x="40" y="548" width="100" height="10" rx="5"/>
+  </g>
+  <text x="180" y="616" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">SAMPLE SCREENSHOT</text>
+</svg>

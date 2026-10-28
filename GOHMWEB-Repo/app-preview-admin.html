@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Preview Editor &ndash; GreatOhm (internal)</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/app-preview.css">
+</head>
+
+<body class="ap-body">
+
+    <!-- PASSPHRASE GATE -->
+    <div class="ap-gate" id="apGate">
+        <form class="ap-gate-card" id="apLoginForm" novalidate>
+            <h1>Preview editor</h1>
+            <p>Enter the editor passphrase to manage the app screenshots shown on
+                <strong>app-preview.html</strong>.</p>
+
+            <div class="ap-field">
+                <label for="apPass">Passphrase</label>
+                <input type="password" id="apPass" autocomplete="current-password" required>
+            </div>
+
+            <p class="ap-note" id="apGateError" data-tone="warn" hidden></p>
+
+            <div class="ap-actions" style="margin-top:16px">
+                <button class="ap-btn" data-tone="primary" type="submit" id="apLoginBtn">Unlock</button>
+                <a class="ap-btn" href="app-preview.html">Back to page</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- EDITOR -->
+    <div class="ap-shell" id="apShell" hidden>
+        <header class="ap-topbar">
+            <div class="ap-brand">
+                <img src="assets/logo1-trim.png" alt="">
+                Preview editor
+            </div>
+            <span class="ap-status" id="apStatus">Loading&hellip;</span>
+
+            <div class="ap-topbar-actions">
+                <button class="ap-btn" type="button" id="apDropSamples" hidden>Remove samples</button>
+                <a class="ap-btn" href="app-preview.html" target="_blank" rel="noopener">View page</a>
+                <button class="ap-btn" type="button" id="apExport">Export JSON</button>
+                <button class="ap-btn" type="button" id="apLogout">Sign out</button>
+            </div>
+        </header>
+
+        <div class="ap-body-grid">
+            <aside class="ap-side">
+                <div class="ap-side-head">
+                    <input class="ap-search" id="apSearch" type="search" placeholder="Filter entries" autocomplete="off">
+                    <button class="ap-btn" data-tone="primary" type="button" id="apNew">+ New entry</button>
+                    <button class="ap-btn" type="button" id="apBulk">Bulk add screenshots</button>
+                    <input type="file" id="apBulkFiles" accept="image/*" multiple hidden>
+                    <p class="ap-hint" style="margin:0">Bulk add makes one entry per file, titled from the file name. New entries copy the science of the selected entry.</p>
+                </div>
+                <ul class="ap-side-list" id="apSideList"></ul>
+            </aside>
+
+            <main class="ap-main">
+                <form class="ap-form" id="apForm" hidden>
+                    <div class="ap-card">
+                        <h2 id="apFormHeading">Edit entry</h2>
+
+                        <div class="ap-field">
+                            <label for="apTitle">Service line <span class="ap-hint">(the text users search and tap)</span></label>
+                            <input type="text" id="apTitle" maxlength="140" required
+                                placeholder="e.g. Kundli &mdash; full birth chart with dasha timeline">
+                        </div>
+
+                        <div class="ap-grid-2">
+                            <div class="ap-field">
+                                <label for="apService">Science / category</label>
+                                <input type="text" id="apService" list="apServiceList" maxlength="40"
+                                    placeholder="Astrology">
+                                <datalist id="apServiceList"></datalist>
+                                <span class="ap-hint">Groups the filter chips on the public page.</span>
+                            </div>
+                            <div class="ap-field">
+                                <label for="apTags">Search tags</label>
+                                <input type="text" id="apTags" placeholder="kundli, birth chart, dasha">
+                                <span class="ap-hint">Comma separated.</span>
+                            </div>
+                        </div>
+
+                        <div class="ap-field">
+                            <label for="apDesc">Description <span class="ap-hint">(optional)</span></label>
+                            <textarea id="apDesc" maxlength="700"
+                                placeholder="One or two lines describing what the user sees on this screen."></textarea>
+                        </div>
+
+                        <label class="ap-check">
+                            <input type="checkbox" id="apHidden">
+                            <span>Hide from the public page (draft)</span>
+                        </label>
+                    </div>
+
+                    <div class="ap-card">
+                        <h2>Screenshots</h2>
+
+                        <label class="ap-drop" id="apDrop">
+                            <strong>Drop screenshots here, paste, or click to choose</strong>
+                            JPG, PNG or WebP &mdash; resized in your browser before upload.
+                            <input type="file" id="apFiles" accept="image/*" multiple hidden>
+                        </label>
+
+                        <div class="ap-shots" id="apShots"></div>
+                        <p class="ap-note" id="apUploadNote" hidden></p>
+                    </div>
+
+                    <div class="ap-actions">
+                        <button class="ap-btn" data-tone="primary" type="submit" id="apSave">Save changes</button>
+                        <button class="ap-btn" type="button" id="apDuplicate">Duplicate</button>
+                        <button class="ap-btn" type="button" id="apMoveUp">Move up</button>
+                        <button class="ap-btn" type="button" id="apMoveDown">Move down</button>
+                        <span class="ap-spacer"></span>
+                        <button class="ap-btn" data-tone="danger" type="button" id="apDelete">Delete entry</button>
+                    </div>
+                </form>
+
+                <div class="ap-empty" id="apEmptyForm">
+                    Select an entry on the left, or create a new one.
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="ap-toast" id="apToast" data-show="false" role="status" aria-live="polite"></div>
+
+    <script src="js/app-preview-admin.js" defer></script>
+</body>
+
+</html>

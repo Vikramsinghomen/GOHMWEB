@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-28T00:00:00.000Z",
+  "demo": true,
+  "items": [
+    {
+      "id": "demo-kundli-chart",
+      "title": "Kundli — full birth chart with dasha timeline",
+      "service": "Astrology",
+      "description": "Sample entry, replace with a real screenshot. This is the screen where a user sees their birth chart, planetary positions and the current dasha period.",
+      "tags": ["kundli", "birth chart", "dasha", "astrology", "lagna"],
+      "images": [
+        {
+          "url": "/assets/preview/sample-kundli.svg",
+          "alt": "Kundli screen (sample)",
+          "width": 360,
+          "height": 640
+        }
+      ],
+      "hidden": false,
+      "demo": true,
+      "order": 0
+    },
+    {
+      "id": "demo-loshu-grid",
+      "title": "Lo Shu Grid — missing numbers reading",
+      "service": "Numerology",
+      "description": "Sample entry, replace with a real screenshot. Shows the Lo Shu grid with missing numbers highlighted and the interpretation underneath.",
+      "tags": ["lo shu", "numerology", "missing numbers", "grid"],
+      "images": [
+        {
+          "url": "/assets/preview/sample-numerology.svg",
+          "alt": "Lo Shu grid screen (sample)",
+          "width": 360,
+          "height": 640
+        }
+      ],
+      "hidden": false,
+      "demo": true,
+      "order": 1
+    },
+    {
+      "id": "demo-tarot-spread",
+      "title": "Tarot — three card spread reading",
+      "service": "Tarot",
+      "description": "Sample entry, replace with a real screenshot. A past, present and future spread with the card meaning for each position.",
+      "tags": ["tarot", "three card", "spread", "reading"],
+      "images": [
+        {
+          "url": "/assets/preview/sample-tarot.svg",
+          "alt": "Tarot spread screen (sample)",
+          "width": 360,
+          "height": 640
+        }
+      ],
+      "hidden": false,
+      "demo": true,
+      "order": 2
+    }
+  ]
+}
