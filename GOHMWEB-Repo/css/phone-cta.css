@@ -1,0 +1,383 @@
+/* ============================================================
+   FLOATING PHONE CTA — homepage only
+   An animated phone that links to the screenshot library
+   (app-preview.html). Pure CSS: no images, no JS.
+
+   Sits bottom-left, clear of the disclaimer tab (bottom:0, z:300)
+   and opposite the Ohm Buddy mascot (bottom-right, z:240).
+   ============================================================ */
+
+.phone-cta {
+    --pc-w: 84px;
+    --pc-h: 170px;
+    --pc-radius: 19px;
+
+    position: fixed;
+    left: 22px;
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    z-index: 260;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+
+    animation: pc-bob 4.6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.phone-cta:focus-visible {
+    outline: none;
+}
+
+/* ---------- soft glow behind the device ---------- */
+
+.phone-cta-halo {
+    position: absolute;
+    left: -16px;
+    bottom: -12px;
+    width: calc(var(--pc-w) + 32px);
+    height: calc(var(--pc-h) + 24px);
+    border-radius: 50%;
+    background: radial-gradient(closest-side,
+            rgba(233, 30, 99, 0.30),
+            rgba(20, 184, 166, 0.22) 58%,
+            transparent 74%);
+    filter: blur(12px);
+    pointer-events: none;
+    z-index: 0;
+    animation: pc-halo 4.6s ease-in-out infinite;
+}
+
+/* ---------- the device ---------- */
+
+.phone-cta-device {
+    position: relative;
+    z-index: 1;
+    width: var(--pc-w);
+    height: var(--pc-h);
+    padding: 4px;
+    border-radius: var(--pc-radius);
+    background: linear-gradient(160deg, #334155, #0f172a 55%, #111827);
+    box-shadow:
+        0 16px 34px rgba(13, 148, 136, 0.28),
+        0 4px 10px rgba(17, 17, 17, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    transform: rotate(-5deg);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.phone-cta:hover .phone-cta-device,
+.phone-cta:focus-visible .phone-cta-device {
+    transform: rotate(-1deg) translateY(-5px) scale(1.05);
+    box-shadow:
+        0 22px 44px rgba(233, 30, 99, 0.30),
+        0 6px 14px rgba(17, 17, 17, 0.20),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.32);
+}
+
+/* expanding beacon ring, drawn around the device */
+.phone-cta-ring {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(233, 30, 99, 0.5);
+    border-radius: var(--pc-radius);
+    pointer-events: none;
+    animation: pc-beacon 4.6s ease-out infinite;
+}
+
+.phone-cta-screen {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: calc(var(--pc-radius) - 5px);
+    background: #0d9488;
+}
+
+.phone-cta-notch {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 20px;
+    height: 3px;
+    margin-left: -10px;
+    border-radius: 2px;
+    background: rgba(15, 23, 42, 0.85);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* ---------- fake app screens (crossfading) ---------- */
+
+.phone-cta-panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: pc-panel 9s ease-in-out infinite;
+}
+
+.phone-cta-panel--1 {
+    background: linear-gradient(160deg, #5eead4, #0d9488 58%, #115e59);
+    animation-delay: -0.5s;
+}
+
+.phone-cta-panel--2 {
+    background: linear-gradient(160deg, #f9a8d4, #e91e63 58%, #9d174d);
+    animation-delay: -3.5s;
+}
+
+.phone-cta-panel--3 {
+    background: linear-gradient(160deg, #a5b4fc, #4f46e5 58%, #312e81);
+    animation-delay: -6.5s;
+}
+
+/* planet / card / chart motif */
+.phone-cta-panel::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    width: 46%;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+}
+
+/* stack of text lines */
+.phone-cta-panel::after {
+    content: "";
+    position: absolute;
+    left: 13%;
+    right: 13%;
+    top: 60%;
+    height: 24%;
+    border-radius: 4px;
+    background: repeating-linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.88) 0 3px,
+            transparent 3px 8px);
+}
+
+/* glass sweep */
+.phone-cta-glare {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 40%;
+    height: 160%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.55),
+            transparent);
+    animation: pc-glare 9s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ---------- label bubble ---------- */
+
+.phone-cta-label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 8px 12px 9px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(20, 184, 166, 0.22);
+    box-shadow: 0 10px 24px rgba(13, 148, 136, 0.16);
+    backdrop-filter: blur(6px);
+    transform-origin: left bottom;
+    animation: pc-label 4.6s ease-in-out infinite;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.phone-cta-label::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    margin-top: -5px;
+    background: inherit;
+    border-left: 1px solid rgba(20, 184, 166, 0.22);
+    border-bottom: 1px solid rgba(20, 184, 166, 0.22);
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.phone-cta-label strong {
+    font-family: var(--sans);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--love-pink);
+}
+
+.phone-cta-label span {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: var(--turquoise-dark);
+}
+
+.phone-cta:hover .phone-cta-label {
+    border-color: rgba(233, 30, 99, 0.35);
+    box-shadow: 0 14px 30px rgba(233, 30, 99, 0.18);
+}
+
+.phone-cta:focus-visible .phone-cta-label {
+    border-color: rgba(233, 30, 99, 0.55);
+    box-shadow:
+        0 0 0 3px rgba(233, 30, 99, 0.30),
+        0 10px 24px rgba(13, 148, 136, 0.16);
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes pc-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+@keyframes pc-halo {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.95; transform: scale(1.07); }
+}
+
+@keyframes pc-beacon {
+    0% { opacity: 0.5; transform: scale(1); }
+    70% { opacity: 0; transform: scale(1.55); }
+    100% { opacity: 0; transform: scale(1.55); }
+}
+
+@keyframes pc-panel {
+    0% { opacity: 0; transform: translateY(6px) scale(1.02); }
+    3% { opacity: 1; transform: translateY(0) scale(1); }
+    33% { opacity: 1; transform: translateY(-1px) scale(1); }
+    40% { opacity: 0; transform: translateY(-6px) scale(1.02); }
+    100% { opacity: 0; transform: translateY(-6px) scale(1.02); }
+}
+
+@keyframes pc-glare {
+    0%, 62% { opacity: 0; transform: translateX(-160%) rotate(18deg); }
+    68% { opacity: 0.55; }
+    88%, 100% { opacity: 0; transform: translateX(200%) rotate(18deg); }
+}
+
+@keyframes pc-label {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 640px) {
+    /* On phones the vertical phone would collide with the hero buttons,
+       so it collapses into a floating pill with a mini phone inside. */
+    .phone-cta {
+        --pc-w: 26px;
+        --pc-h: 46px;
+        --pc-radius: 7px;
+        position: static;
+        margin: 26px auto 0;
+        gap: 9px;
+        padding: 7px 14px 7px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.97);
+        border: 1px solid rgba(20, 184, 166, 0.25);
+        box-shadow: 0 8px 22px rgba(13, 148, 136, 0.18);
+        backdrop-filter: blur(6px);
+        animation: none;
+    }
+
+    .phone-cta-halo,
+    .phone-cta-ring,
+    .phone-cta-notch {
+        display: none;
+    }
+
+    .phone-cta-device {
+        padding: 2px;
+        transform: rotate(-3deg);
+        box-shadow:
+            0 4px 10px rgba(13, 148, 136, 0.25),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    }
+
+    .phone-cta:hover .phone-cta-device,
+    .phone-cta:focus-visible .phone-cta-device {
+        transform: rotate(-1deg) scale(1.06);
+    }
+
+    .phone-cta-panel::before {
+        top: 16%;
+        width: 46%;
+        box-shadow: none;
+    }
+
+    .phone-cta-panel::after {
+        display: none;
+    }
+
+    .phone-cta-label {
+        padding: 0;
+        background: none;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        animation: none;
+    }
+
+    .phone-cta-label::before {
+        display: none;
+    }
+
+    .phone-cta-label strong { font-size: 0.78rem; }
+    .phone-cta-label span { display: none; }
+
+    .phone-cta:hover .phone-cta-label,
+    .phone-cta:focus-visible .phone-cta-label {
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+    .phone-cta:focus-visible {
+        box-shadow:
+            0 0 0 3px rgba(233, 30, 99, 0.30),
+            0 8px 22px rgba(13, 148, 136, 0.18);
+    }
+}
+
+/* landscape phones: don't crowd a short viewport */
+@media (max-height: 480px) {
+    .phone-cta { display: none; }
+}
+
+/* ---------- respect reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .phone-cta,
+    .phone-cta-halo,
+    .phone-cta-ring,
+    .phone-cta-panel,
+    .phone-cta-glare,
+    .phone-cta-label {
+        animation: none !important;
+    }
+
+    .phone-cta-panel--1 { opacity: 1; }
+    .phone-cta-ring { opacity: 0; }
+}
+
+@media print {
+    .phone-cta { display: none; }
+}
