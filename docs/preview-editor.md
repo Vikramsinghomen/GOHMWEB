@@ -2,7 +2,7 @@
 
 A searchable page of real app screenshots (`app-preview.html`) plus a passphrase-gated
 editor (`app-preview-admin.html`) that writes to Vercel Blob. No redeploy is needed
-after a save — the public page picks up changes within about a minute.
+after a save - the public page picks up changes on the very next load.
 
 ---
 
@@ -126,7 +126,8 @@ This page is deliberately independent of the homepage marquee (`index.html#scree
 The marquee is curated marketing art; this page is the working library of 50+ real
 subservice screens. Nothing on the homepage links to it.
 
-- `GET /api/preview/list` returns the catalog (cached at the edge for 60s).
+- `GET /api/preview/list` returns the catalog, always `no-store` - a save must be
+  visible on the next page load, so it is never cached at the edge or in the browser.
 - Search runs entirely in the browser over title, category, tags and description;
   every typed word must match somewhere, best matches first.
 - `?q=kundli` restores a search, `?item=<id>` opens one entry directly — useful when
@@ -173,5 +174,5 @@ other entry still references that URL.
 | Login says `EDIT_PASSPHRASE is not set` | Add the env var, redeploy |
 | Save returns 401 | Session expired — sign in again |
 | Upload fails with "not supported" | HEIC or an exotic format; export as JPG/PNG/WebP |
-| Page shows old content | Edge cache is 60s; the editor uses `?fresh=1` and is always current |
+| Page shows old content | Hard-reload once (Ctrl+Shift+R). The API is `no-store`, so a normal reload is enough from then on |
 | `api/preview/*` 404s | Root Directory is not `GOHMWEB-Repo`, or the folder was not committed |

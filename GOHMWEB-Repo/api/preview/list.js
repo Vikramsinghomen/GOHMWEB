@@ -6,7 +6,12 @@ const { isAuthed } = require('../_lib/auth');
  * GET /api/preview/list
  *
  * Public. Returns the catalog in display order. Hidden items are only included
- * for a signed-in editor. `?fresh=1` bypasses the edge cache (used by the admin).
+ * for a signed-in editor.
+ *
+ * Never cached, by the edge or the browser: the editor writes the catalog
+ * straight to Blob, so a save must show up on the very next page load. With an
+ * edge cache here the owner saves an entry, reloads, and still sees the old
+ * list for up to six minutes - which is exactly the bug we hit.
  */
 module.exports = async (req, res) => {
   try {
@@ -14,16 +19,10 @@ module.exports = async (req, res) => {
       return send(res, 405, { error: 'method_not_allowed' });
     }
 
-    const url = new URL(req.url, 'https://local.invalid');
-    const fresh = url.searchParams.get('fresh') === '1';
     const authed = isAuthed(req);
 
     const catalog = await readCatalog();
     const items = authed ? catalog.items : catalog.items.filter((item) => !item.hidden);
-
-    const cache = authed || fresh
-      ? 'no-store, max-age=0'
-      : 'public, s-maxage=60, stale-while-revalidate=300';
 
     send(
       res,
@@ -35,7 +34,7 @@ module.exports = async (req, res) => {
         storage: blobConfigured() ? 'blob' : 'seed',
         authed: authed
       },
-      cache
+      'no-store, max-age=0'
     );
   } catch (err) {
     fail(res, err);

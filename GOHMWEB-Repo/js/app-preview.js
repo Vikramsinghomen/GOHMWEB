@@ -588,7 +588,10 @@
         }
         state.query = initialQuery;
 
-        fetch('/api/preview/list', { headers: { accept: 'application/json' } })
+        fetch('/api/preview/list', {
+            cache: 'no-store',
+            headers: { accept: 'application/json' }
+        })
             .then(function (response) {
                 if (!response.ok) throw new Error('HTTP ' + response.status);
                 return response.json();
