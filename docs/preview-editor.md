@@ -110,7 +110,7 @@ Notes:
 
 - Screenshots are resized in the browser (max 1440px, WebP) before upload, so a
   4–8 MB phone screenshot becomes ~200–400 KB. HEIC files must be exported as JPG first.
-- Up to 12 screenshots per entry, 500 entries total.
+- Up to 50 screenshots per entry, 500 entries total.
 - **Move up / Move down** changes the order of the list. Inside an entry, the `←`
   `→` buttons on each screenshot change which one appears first (the first is the
   thumbnail).

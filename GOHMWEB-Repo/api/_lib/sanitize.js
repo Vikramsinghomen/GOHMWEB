@@ -9,7 +9,7 @@
 const crypto = require('crypto');
 
 const MAX_ITEMS = 500;
-const MAX_IMAGES_PER_ITEM = 12;
+const MAX_IMAGES_PER_ITEM = 50;
 const MAX_TAGS = 12;
 
 const SAME_SITE = /^\/assets\/[a-z0-9._\/-]+$/i;

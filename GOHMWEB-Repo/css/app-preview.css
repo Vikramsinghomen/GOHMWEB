@@ -456,14 +456,19 @@
     white-space: pre-line;
 }
 
+/* One scrollable row: an entry can hold up to 50 screenshots, and a wrapped
+   block of thumbnails would push the description and close button out of reach. */
 .pv-strip {
     display: flex;
     gap: 8px;
-    flex-wrap: wrap;
-    padding-top: 4px;
+    padding: 4px 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
 }
 
 .pv-strip button {
+    flex: 0 0 auto;
     width: 52px;
     height: 52px;
     padding: 0;

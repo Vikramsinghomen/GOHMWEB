@@ -455,6 +455,21 @@
                 });
                 el.strip.appendChild(button);
             });
+
+            // The strip is rebuilt on every step, so its scroll position resets.
+            // Bring the current thumbnail back into view (horizontally only).
+            var active = el.strip.querySelector('[aria-current="true"]');
+            if (active) {
+                var stripBox = el.strip.getBoundingClientRect();
+                var activeBox = active.getBoundingClientRect();
+                if (stripBox.width && activeBox.width) {
+                    if (activeBox.left < stripBox.left) {
+                        el.strip.scrollLeft -= stripBox.left - activeBox.left;
+                    } else if (activeBox.right > stripBox.right) {
+                        el.strip.scrollLeft += activeBox.right - stripBox.right;
+                    }
+                }
+            }
         }
     }
 

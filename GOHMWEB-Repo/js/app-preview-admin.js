@@ -7,7 +7,7 @@
 (function () {
     'use strict';
 
-    var MAX_SHOTS = 12;
+    var MAX_SHOTS = 50;
     var MAX_FILE_MB = 25;
     var MAX_EDGE = 1440;
 
