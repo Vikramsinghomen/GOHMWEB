@@ -83,6 +83,17 @@
 
     var toastTimer = null;
 
+    /* A sample stops being a sample the moment it holds a real screenshot, so
+       "Remove samples" can never delete work that is already done. Sample
+       images are the local /assets/preview/*.svg seeds; everything uploaded
+       through the editor lives on Vercel Blob. */
+    function isSample(item) {
+        if (!item.demo) return false;
+        return !(item.images || []).some(function (img) {
+            return img && img.url && img.url.indexOf('/assets/preview/') !== 0;
+        });
+    }
+
     function toast(message, tone) {
         el.toast.textContent = message;
         el.toast.setAttribute('data-tone', tone || '');
@@ -537,6 +548,9 @@
                                 width: data.width || prepared.width,
                                 height: data.height || prepared.height
                             });
+                            // it has a real screenshot now, so it is no longer
+                            // a placeholder entry
+                            item.demo = false;
                             markDirty();
                             renderSide();
                         });
@@ -722,14 +736,12 @@
     }
 
     function removeSamples() {
-        var count = state.items.filter(function (item) {
-            return item.demo;
-        }).length;
+        var count = state.items.filter(isSample).length;
         if (!count) return;
         if (!window.confirm('Remove ' + count + ' sample entr' + (count === 1 ? 'y' : 'ies') + '?')) return;
 
         state.items = state.items.filter(function (item) {
-            return !item.demo;
+            return !isSample(item);
         });
         if (!selected()) state.selectedId = state.items.length ? state.items[0].id : null;
         markDirty();

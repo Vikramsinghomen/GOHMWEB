@@ -51,6 +51,16 @@
 
     /* ---------------- helpers ---------------- */
 
+    /* An entry only counts as a sample while it still shows the bundled
+       placeholder artwork. Once a real screenshot has been uploaded it is a
+       real entry, whatever the stored flag says. */
+    function isSample(item) {
+        if (!item.demo) return false;
+        return !(item.images || []).some(function (img) {
+            return img && img.url && img.url.indexOf('/assets/preview/') !== 0;
+        });
+    }
+
     function normalize(value) {
         return String(value || '')
             .toLowerCase()
@@ -297,7 +307,7 @@
         shots.textContent = plural((item.images || []).length, 'screenshot');
         meta.appendChild(shots);
 
-        if (item.demo) {
+        if (isSample(item)) {
             var demo = document.createElement('span');
             demo.className = 'pv-pill pv-badge-demo';
             demo.textContent = 'Sample';
