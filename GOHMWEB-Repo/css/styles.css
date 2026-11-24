@@ -380,17 +380,9 @@ a:hover {
 
 .logo-flip-back {
     transform: rotateY(180deg);
-    overflow: hidden;
-    border-radius: 50%;
 }
 
 .logo-flip-back img {
-    width: 80%;
-    height: 80%;
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 50%;
-    object-fit: cover;
     filter: drop-shadow(0 10px 30px rgba(13, 148, 136, 0.25));
 }
 
